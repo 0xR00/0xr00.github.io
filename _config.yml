@@ -18,7 +18,7 @@ title: 0xR0_ # the main title
 
 tagline: "{{constructor.constructor}}" # it will display as the subtitle
 
-description: "" # used by seo meta and the atom feed
+description: "{{constructor.constructor}}" # used by seo meta and the atom feed
   
 
 # Fill in the protocol & hostname for your site.
