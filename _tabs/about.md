@@ -4,5 +4,5 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> El Active Directory da asco. ;)
+> ¿Qué coño es el AD?
 {: .prompt-danger }
