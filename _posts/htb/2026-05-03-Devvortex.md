@@ -1,5 +1,5 @@
 ---
-title: Devvortex - THM
+title: Devvortex - HTB
 date: 2026-05-03
 mermaid: true
 categories: [HackTheBox, Linux, Easy]
