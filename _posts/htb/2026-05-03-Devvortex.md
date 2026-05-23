@@ -2,10 +2,10 @@
 title: Devvortex - HTB
 date: 2026-05-03
 mermaid: true
-categories: [HackTheBox, Linux, Easy]
+categories: [HackTheBox]
 image: 
   path: /assets/images/htb/devvortex/logo.png
-tags: [Information Disclosure, Joomla, apport-cli]
+tags: [Linux, Easy, Information Disclosure, Joomla, apport-cli]
 ---
 
 ---

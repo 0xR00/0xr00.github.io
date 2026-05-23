@@ -2,10 +2,10 @@
 title: Expressway - HTB
 date: 2026-04-26
 mermaid: true
-categories: [HackTheBox, Linux, Easy]
+categories: [HackTheBox]
 image: 
   path: /assets/images/htb/expressway/logo.png
-tags: [UDP, ipsec-ike]
+tags: [Linux, Easy, UDP, ipsec-ike]
 ---
 
 ---

@@ -2,10 +2,10 @@
 title: TryHeartMe - THM
 date: 2026-04-26
 mermaid: true
-categories: [TryHackMe, Linux, Easy]
+categories: [TryHackMe]
 image: 
   path: /assets/images/thm/tryheartme/logo.png
-tags: [JWT]
+tags: [Linux, Easy, JWT]
 ---
 
 ---
