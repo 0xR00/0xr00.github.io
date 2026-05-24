@@ -1,0 +1,31 @@
+---
+---
+
+@use 'main{% if jekyll.environment == "production" %}.bundle{% endif %}';
+
+
+[data-mode='dark'],
+html[data-mode='dark'] body {
+  --body-bg: #000;
+  --main-bg: #000;
+  --sidebar-bg: #000;
+  --topbar-wrapper-bg: #000;
+  --card-bg: #0d0d0d;
+  --card-border-color: #1a1a1a;
+}
+
+body {
+  background-color: var(--body-bg, #000) !important;
+}
+
+#main-wrapper {
+  background-color: var(--main-bg, #000) !important;
+}
+
+#sidebar {
+  background-color: var(--sidebar-bg, #000) !important;
+}
+
+#topbar-wrapper {
+  background-color: var(--topbar-wrapper-bg, #000) !important;
+}
