@@ -24,7 +24,7 @@ html[data-mode='dark'] body {
   --toc-active-color: #ffffff !important;
   --sidebar-active-color: #ffffff !important;
   --link-color: #a3a3a3 !important;
-  --link-underline-color: transparent !important; /* Volvemos invisible el subrayado nativo de Chirpy */
+  --link-underline-color: transparent !important; 
 
   /* --- NEUTRALIZAR VARIABLES DE BOTONES DE BOOTSTRAP --- */
   --bs-btn-hover-border-color: #ffffff !important;
@@ -49,37 +49,29 @@ body {
 
 /* --- AJUSTE MANUAL: BOTONES MACOS MÁS SEPARADOS --- */
 .code-header::before {
-  /* Botón izquierdo (Rojo) */
   background-color: #ff5f56 !important;
-  
-  /* Espacio ideal entre los botones */
   box-shadow: 1.2rem 0 0 0 #ffbd2e, 
               2.4rem 0 0 0 #27c93f !important;
 }
 
 /* --- BLOQUES DE CÓDIGO EN NEGRO PURO --- */
-
-/* Fondo de la barra superior donde están los botones de Mac */
 .code-header {
   background-color: #000000 !important;
   border-bottom: 1px solid #1a1a1a !important;
 }
 
-/* Fondo del contenedor del código */
 div[class^="language-"],
 .highlight,
 pre {
   background-color: #000000 !important;
 }
 
-/* Borde exterior del bloque de código */
 div[class^="language-"] {
   border: 1px solid #1a1a1a !important;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
-/* Mueve el texto del lenguaje a la derecha para que no toque los botones separados */
 .code-header span {
   padding-left: 1.5rem !important;
 }
@@ -104,7 +96,6 @@ div[class^="language-"] {
   transition: color 0.2s ease;
 }
 
-/* Estado al pasar el cursor (Hover) y al seleccionar (Focus) */
 .post-content a:hover,
 .post-content a:focus,
 #main-wrapper a:hover,
@@ -136,7 +127,6 @@ div[class^="language-"] {
 /* Estado normal de las etiquetas (Post tags y Trending tags del lateral) */
 .tag,
 .post-tag,
-[class*="tag"],
 .btn-outline-primary {
   background-color: #0d0d0d !important;      
   color: #cccccc !important;                 
@@ -147,31 +137,45 @@ div[class^="language-"] {
 
 /* Cantidad numérica dentro de la tag */
 .tag span,
-.post-tag span,
-[class*="tag"] .text-muted {
+.post-tag span {
   color: #8a8a8a !important;                 
 }
 
-/* --- ELIMINACIÓN TOTAL DEL AZUL (HOVER, FOCUS, ACTIVE) --- */
+/* --- ELIMINACIÓN TOTAL DEL AZUL (HOVER, FOCUS, ACTIVE) - CORREGIDO --- */
 .tag:hover,
 .post-tag:hover,
-[class*="tag"]:hover,
 .btn-outline-primary:hover,
 .btn-outline-primary:focus,
 .btn-outline-primary:active,
 .btn-outline-primary:focus-visible,
 #access-tags a:hover {
-  background-color: #1a1a1a !important;      /* Fondo gris oscuro en hover */
-  color: #ffffff !important;                 /* Texto blanco brillante */
-  border-color: #ffffff !important;          /* Forzamos borde blanco puro */
-  box-shadow: none !important;                /* Destruye el resplandor azul de Bootstrap */
+  background-color: #1a1a1a !important;      
+  color: #ffffff !important;                 
+  border-color: #ffffff !important;          
+  box-shadow: none !important;                
   text-decoration: none !important;
 }
 
 /* Asegurar que los números interiores también cambien a blanco en hover */
 .tag:hover span,
 .post-tag:hover span,
-[class*="tag"]:hover .text-muted,
 .btn-outline-primary:hover span {
   color: #ffffff !important;
+}
+
+/* --- ELIMINACIÓN DEL CONTENEDOR GRIS DEL ICONO DE TAGS --- */
+.post-meta div,
+.post-meta span,
+.post-meta i,
+.post-tags div,
+.post-tags span,
+.post-tags i,
+[id*="tag"] div,
+[id*="tag"] span,
+[class*="meta"] div,
+[class*="meta"] span {
+  background: transparent !important;       
+  background-color: transparent !important; 
+  border: none !important;                  
+  box-shadow: none !important;
 }
