@@ -176,3 +176,18 @@ div[class^="language-"] {
   border: none !important;                  
   box-shadow: none !important;
 }
+
+/* ==========================================================================
+   SOLUCIÓN EXCLUSIVA MENÚ MÓVIL (Añadido sin alterar lo anterior)
+   ========================================================================== */
+
+/* Cambia a blanco el texto activo dentro del menú móvil flotante */
+#toc-popup-content .toc-link[class*="is-active-link"] {
+  color: #ffffff !important;
+}
+
+/* Cambia a blanco el palito vertical (::before) dentro del menú móvil flotante */
+#toc-popup-content .toc-link[class*="is-active-link"]::before {
+  background-color: #ffffff !important;
+  border-left-color: #ffffff !important;
+}
