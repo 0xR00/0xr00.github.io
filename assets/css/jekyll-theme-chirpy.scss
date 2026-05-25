@@ -1,794 +1,613 @@
 /*
  * ============================================================
- *  CHIRPY MONOCHROME THEME — Negro · Blanco · Gris
- *  Archivo: assets/css/jekyll-theme-chirpy.scss
+ *  CHIRPY — TEMA NEGRO PURO
+ *  Archivo destino: assets/css/jekyll-theme-chirpy.scss
+ *  (pega TODO esto al final, después del @import existente)
  *
- *  INSTRUCCIONES DE USO
- *  --------------------
- *  1. Copia este contenido al final del archivo:
- *       assets/css/jekyll-theme-chirpy.scss
- *     (respeta el @import que ya existe arriba del todo)
- *
- *  2. En _config.yml asegúrate de tener:
- *       theme_mode: dark
- *     (forzamos siempre modo oscuro; el CSS también cubre el
- *      caso de que el usuario no tenga preferencia de sistema)
- *
- *  3. Si quieres que el selector de tema (luz/oscuro) se
- *     oculte, añade al final:
- *       #mode-toggle { display: none !important; }
- * ============================================================
- *
- *  PALETA
- *  ──────
- *  --bg-base     #0a0a0a   Negro casi puro (fondo general)
- *  --bg-surface  #111111   Superficie de tarjetas/sidebar
- *  --bg-elevated #1a1a1a   Elementos elevados, hover suave
- *  --bg-input    #161616   Inputs, search box
- *  --border      #2a2a2a   Bordes sutiles
- *  --border-mid  #3a3a3a   Bordes más visibles
- *  --text-main   #f0f0f0   Texto principal (blanco suave)
- *  --text-muted  #888888   Texto secundario / metadatos
- *  --text-faint  #555555   Texto muy tenue
- *  --tag-bg      #1e1e1e   Fondo de etiquetas/tags
- *  --tag-hover   #2e2e2e   Hover en tags
- *  --accent      #d0d0d0   Acento (blanco medio para links)
- *  --accent-hover #ffffff  Hover de links
+ *  Negro: #000000  |  Superficie: #0d0d0d  |  Elevado: #161616
+ *  Borde: #252525  |  Texto: #e8e8e8       |  Muted: #777777
  * ============================================================
  */
 
-/* ─── VARIABLES GLOBALES ──────────────────────────────────── */
-:root {
-  --bg-base:      #0a0a0a;
-  --bg-surface:   #111111;
-  --bg-elevated:  #1a1a1a;
-  --bg-input:     #161616;
-  --border:       #2a2a2a;
-  --border-mid:   #3a3a3a;
-  --text-main:    #f0f0f0;
-  --text-muted:   #888888;
-  --text-faint:   #555555;
-  --tag-bg:       #1e1e1e;
-  --tag-hover:    #2e2e2e;
-  --accent:       #d0d0d0;
-  --accent-hover: #ffffff;
-}
-
-
-/* ─── FORZAR DARK MODE (cubre todos los casos de Chirpy) ─── */
-/*
- * Chirpy usa html[data-mode="dark"] para dark y
- * html[data-mode="light"] para light. Cubrimos ambos
- * para que siempre se vea el tema monocromo.
- */
+/* ── FORZAR NEGRO EN TODOS LOS MODOS ──────────────────────── */
+/* Chirpy cambia html[data-mode]. Cubrimos todos los casos     */
 
 html,
+html[data-mode],
 html[data-mode="dark"],
 html[data-mode="light"],
 html:not([data-mode]) {
 
-  /* ── Framework ── */
-  --body-bg:            var(--bg-base);
-  --mask-bg:            #1a1a1a;
-  --main-bg:            var(--bg-surface);
-  --main-border-color:  var(--border);
+  /* Framework */
+  --body-bg:           #000000;
+  --main-bg:           #0d0d0d;
+  --main-border-color: #1e1e1e;
+  --mask-bg:           #0d0d0d;
 
-  /* ── Texto ── */
-  --text-color:         var(--text-main);
-  --text-muted-color:   var(--text-muted);
-  --heading-color:      #ffffff;
-  --label-color:        #aaaaaa;
+  /* Texto */
+  --text-color:        #e8e8e8;
+  --text-muted-color:  #777777;
+  --heading-color:     #ffffff;
+  --label-color:       #999999;
 
-  /* ── Links ── */
-  --link-color:             var(--accent);
-  --link-underline-color:   var(--border-mid);
+  /* Links */
+  --link-color:           #cccccc;
+  --link-underline-color: #333333;
 
-  /* ── Blockquote ── */
-  --blockquote-border-color: var(--border-mid);
-  --blockquote-text-color:   #777777;
+  /* Blockquote */
+  --blockquote-border-color: #2a2a2a;
+  --blockquote-text-color:   #666666;
 
-  /* ── Botones ── */
-  --button-bg:               var(--bg-elevated);
-  --btn-border-color:        var(--border-mid);
-  --btn-backtotop-color:     #888888;
-  --btn-backtotop-border-color: var(--border);
-  --btn-box-shadow:          rgba(0, 0, 0, 0.6);
-  --btn-text-color:          #aaaaaa;
-  --btn-patinator-text-color: #888888;
-  --btn-paginator-hover-color: var(--bg-elevated);
-  --btn-paginator-border-color: var(--border-mid);
+  /* Botones */
+  --button-bg:                 #111111;
+  --btn-border-color:          #2a2a2a;
+  --btn-backtotop-color:       #777777;
+  --btn-backtotop-border-color:#1e1e1e;
+  --btn-box-shadow:            #000000;
+  --btn-text-color:            #999999;
+  --btn-patinator-text-color:  #777777;
+  --btn-paginator-hover-color: #161616;
+  --btn-paginator-border-color:#2a2a2a;
 
-  /* ── Checkbox ── */
-  --checkbox-color:         var(--border-mid);
+  /* Checkbox */
+  --checkbox-color:         #2a2a2a;
   --checkbox-checked-color: #ffffff;
 
-  /* ── Imágenes ── */
-  --img-bg: radial-gradient(
-    circle,
-    rgb(20, 20, 20) 0%,
-    rgb(10, 10, 10) 100%
-  );
-  --shimmer-bg: linear-gradient(
-    90deg,
-    rgba(10, 10, 10, 0) 0%,
-    rgba(40, 40, 40, 1) 50%,
-    rgba(10, 10, 10, 0) 100%
-  );
+  /* Imágenes */
+  --img-bg: radial-gradient(circle, #111111 0%, #000000 100%);
+  --shimmer-bg: linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(30,30,30,1) 50%,rgba(0,0,0,0) 100%);
 
-  /* ── Sidebar ── */
-  --sidebar-bg:             var(--bg-surface);
-  --sidebar-muted-color:    #666666;
-  --sidebar-active-color:   #ffffff;
-  --nav-cursor-color:       #888888;
-  --sidebar-btn-bg:         var(--bg-elevated);
-  --sidebar-border-color:   var(--border);
+  /* Sidebar */
+  --sidebar-bg:           #000000;
+  --sidebar-muted-color:  #555555;
+  --sidebar-active-color: #ffffff;
+  --nav-cursor-color:     #777777;
+  --sidebar-btn-bg:       #111111;
 
-  /* ── Topbar ── */
-  --topbar-text-color:         var(--text-main);
-  --topbar-wrapper-bg:         var(--bg-surface);
-  --search-wrapper-bg:         rgba(22, 22, 22, 0.9);
-  --search-wrapper-border-color: var(--border-mid);
-  --search-tag-bg:             var(--tag-bg);
-  --search-icon-color:         #555555;
-  --input-focus-border-color:  #555555;
+  /* Topbar */
+  --topbar-text-color:          #e8e8e8;
+  --topbar-wrapper-bg:          #000000;
+  --search-wrapper-bg:          rgba(13,13,13,0.95);
+  --search-wrapper-border-color:#2a2a2a;
+  --search-tag-bg:              #111111;
+  --search-icon-color:          #444444;
+  --input-focus-border-color:   #444444;
 
-  /* ── Home / Post list ── */
-  --post-list-text-color:  #cccccc;
-  --pin-bg:                var(--bg-elevated);
-  --pin-color:             #666666;
+  /* Posts */
+  --post-list-text-color: #cccccc;
+  --pin-bg:               #111111;
+  --pin-color:            #555555;
+  --card-border-color:    #1e1e1e;
+  --card-box-shadow:      rgba(0,0,0,0.8);
+  --relate-post-date:     rgba(255,255,255,0.3);
+  --footnote-target-bg:   #111111;
+  --dash-color:           #2a2a2a;
+  --kbd-wrap-color:       #2a2a2a;
+  --kbd-text-color:       #e8e8e8;
+  --kbd-bg-color:         #161616;
 
-  /* ── Posts ── */
-  --btn-share-hover-color:   #ffffff;
-  --card-border-color:       var(--border);
-  --card-box-shadow:         rgba(0, 0, 0, 0.5);
-  --relate-post-date:        rgba(255, 255, 255, 0.35);
-  --footnote-target-bg:      var(--bg-elevated);
-  --dash-color:              var(--border-mid);
-  --kbd-wrap-color:          var(--border-mid);
-  --kbd-text-color:          var(--text-main);
-  --kbd-bg-color:            var(--bg-elevated);
+  /* Tags */
+  --tag-bg:     #0d0d0d;
+  --tag-border: #2a2a2a;
+  --tag-shadow: #000000;
+  --tag-hover:  #1a1a1a;
 
-  /* ── Tags ── */
-  --tag-bg:       var(--tag-bg);
-  --tag-border:   var(--border-mid);
-  --tag-shadow:   var(--border);
-  --tag-hover:    var(--tag-hover);
+  /* Tabla */
+  --tb-odd-bg:       #080808;
+  --tb-border-color: #1e1e1e;
 
-  /* ── Tabla ── */
-  --tb-odd-bg:       #121212;
-  --tb-border-color: var(--border);
+  /* Prompts — todos en gris neutro */
+  --prompt-text-color:         rgba(232,232,232,0.9);
+  --prompt-tip-bg:             rgba(255,255,255,0.03);
+  --prompt-tip-icon-color:     #888888;
+  --prompt-info-bg:            rgba(255,255,255,0.03);
+  --prompt-info-icon-color:    #888888;
+  --prompt-warning-bg:         rgba(255,255,255,0.03);
+  --prompt-warning-icon-color: #888888;
+  --prompt-danger-bg:          rgba(255,255,255,0.03);
+  --prompt-danger-icon-color:  #888888;
 
-  /* ── Prompts / Callouts ── */
-  --prompt-text-color:         rgba(240, 240, 240, 0.9);
-  --prompt-tip-bg:             rgba(255, 255, 255, 0.05);
-  --prompt-tip-icon-color:     #aaaaaa;
-  --prompt-info-bg:            rgba(255, 255, 255, 0.05);
-  --prompt-info-icon-color:    #aaaaaa;
-  --prompt-warning-bg:         rgba(255, 255, 255, 0.05);
-  --prompt-warning-icon-color: #aaaaaa;
-  --prompt-danger-bg:          rgba(255, 255, 255, 0.05);
-  --prompt-danger-icon-color:  #aaaaaa;
-
-  /* ── Categorías ── */
-  --categories-hover-bg:         var(--bg-elevated);
+  /* Categorías */
+  --categories-hover-bg:         #111111;
   --categories-icon-hover-color: #cccccc;
 
-  /* ── Archivo/Timeline ── */
-  --timeline-color:         rgba(255, 255, 255, 0.08);
-  --timeline-node-bg:       #444444;
-  --timeline-year-dot-color: var(--bg-base);
+  /* Timeline */
+  --timeline-color:          rgba(255,255,255,0.06);
+  --timeline-node-bg:        #333333;
+  --timeline-year-dot-color: #000000;
 
-  /* ── Código inline ── */
-  --code-header-text-color:   #999999;
-  --code-header-muted-color:  #555555;
-  --code-header-icon-color:   #666666;
-  --clipboard-checked-color:  #aaaaaa;
-  --filepath-text-color:      #bbbbbb;
+  /* Código */
+  --code-header-text-color:  #888888;
+  --code-header-muted-color: #444444;
+  --code-header-icon-color:  #555555;
+  --clipboard-checked-color: #888888;
+  --filepath-text-color:     #aaaaaa;
 }
 
-
-/* ─── BODY & LAYOUT BASE ─────────────────────────────────── */
-body {
-  background-color: var(--bg-base) !important;
-  color: var(--text-main) !important;
-}
-
-/* Fondo del área de contenido principal */
+/* ── BODY & LAYOUT ────────────────────────────────────────── */
+body,
 #main-wrapper,
 .main-wrapper,
-main {
-  background-color: var(--bg-base) !important;
+main,
+.container-fluid,
+.container {
+  background-color: #000000 !important;
+  color: #e8e8e8 !important;
 }
 
-/* Tarjetas de posts */
+/* ── SIDEBAR ──────────────────────────────────────────────── */
+#sidebar {
+  background-color: #000000 !important;
+  border-right: 1px solid #1a1a1a !important;
+}
+
+#sidebar .site-title a,
+#sidebar .site-title {
+  color: #ffffff !important;
+}
+
+#sidebar .site-subtitle {
+  color: #555555 !important;
+}
+
+#sidebar .nav-link,
+#sidebar li a {
+  color: #aaaaaa !important;
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active,
+#sidebar li a:hover {
+  color: #ffffff !important;
+  background-color: #111111 !important;
+}
+
+#sidebar .nav-link i {
+  color: #444444 !important;
+}
+
+#sidebar .nav-link:hover i,
+#sidebar .nav-link.active i {
+  color: #aaaaaa !important;
+}
+
+/* Botón toggle modo — ocultar */
+#mode-toggle {
+  display: none !important;
+}
+
+/* Footer del sidebar */
+.sidebar-bottom,
+#sidebar-bottom {
+  border-top: 1px solid #1a1a1a !important;
+}
+
+#sidebar-bottom a,
+.sidebar-bottom a {
+  color: #555555 !important;
+}
+
+#sidebar-bottom a:hover,
+.sidebar-bottom a:hover {
+  color: #cccccc !important;
+}
+
+/* ── TOPBAR ───────────────────────────────────────────────── */
+#topbar-wrapper {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #1a1a1a !important;
+}
+
+#breadcrumb a,
+#breadcrumb span,
+.breadcrumb-item,
+.breadcrumb-item a,
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #555555 !important;
+}
+
+#breadcrumb a:hover {
+  color: #ffffff !important;
+}
+
+/* Search */
+#search-wrapper {
+  background-color: #0d0d0d !important;
+  border: 1px solid #222222 !important;
+  border-radius: 6px !important;
+}
+
+#search-input {
+  background: transparent !important;
+  color: #e8e8e8 !important;
+}
+
+#search-input::placeholder {
+  color: #3a3a3a !important;
+}
+
+/* ── TIPOGRAFÍA ───────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+a {
+  color: #cccccc !important;
+}
+
+a:hover {
+  color: #ffffff !important;
+}
+
+.text-muted,
+.post-meta,
+.post-meta a,
+time,
+.post-date,
+small {
+  color: #666666 !important;
+}
+
+hr {
+  border-color: #1a1a1a !important;
+  opacity: 1 !important;
+}
+
+/* ── TARJETAS DE POSTS ────────────────────────────────────── */
 .card,
 .card-wrapper,
 .post-preview {
-  background-color: var(--bg-surface) !important;
-  border-color: var(--border) !important;
+  background-color: #0a0a0a !important;
+  border: 1px solid #1a1a1a !important;
 }
 
 .card:hover,
 .card-wrapper:hover,
 .post-preview:hover {
-  background-color: var(--bg-elevated) !important;
-  border-color: var(--border-mid) !important;
+  background-color: #111111 !important;
+  border-color: #2a2a2a !important;
 }
 
-
-/* ─── SIDEBAR ────────────────────────────────────────────── */
-#sidebar,
-.sidebar {
-  background-color: var(--bg-surface) !important;
-  border-right: 1px solid var(--border) !important;
+.card-title a,
+.post-preview .preview-img + .post-content .card-title a {
+  color: #e8e8e8 !important;
 }
 
-/* Nombre del blog / avatar */
-#sidebar .site-title a,
-.sidebar .site-title a {
-  color: #ffffff !important;
+.card-text,
+.card-body p {
+  color: #888888 !important;
 }
 
-#sidebar .site-subtitle,
-.sidebar .site-subtitle {
-  color: var(--text-muted) !important;
+/* Pin */
+.pin-wrapper,
+.pin {
+  background-color: #0d0d0d !important;
+  color: #555555 !important;
 }
 
-/* Navegación del sidebar */
-#sidebar .nav-link,
-.sidebar .nav-link,
-#sidebar li > a {
-  color: #bbbbbb !important;
-}
-
-#sidebar .nav-link:hover,
-.sidebar .nav-link:hover,
-#sidebar li > a:hover,
-#sidebar .nav-link.active,
-.sidebar .nav-link.active {
-  color: #ffffff !important;
-  background-color: var(--bg-elevated) !important;
-}
-
-/* Iconos del sidebar */
-#sidebar .nav-link i,
-.sidebar .nav-link i {
-  color: var(--text-faint) !important;
-}
-
-#sidebar .nav-link:hover i,
-.sidebar .nav-link.active i {
-  color: #cccccc !important;
-}
-
-/* Footer del sidebar */
-#sidebar-bottom,
-.sidebar-bottom {
-  border-top: 1px solid var(--border) !important;
-}
-
-#sidebar-bottom .icon-border,
-.sidebar-bottom .icon-border {
-  background-color: var(--bg-elevated) !important;
-  border-color: var(--border-mid) !important;
-}
-
-/* Contador de posts (número al lado de categorías/tags) */
-#sidebar .badge,
-.sidebar .badge {
-  background-color: var(--border-mid) !important;
-  color: var(--text-muted) !important;
-}
-
-
-/* ─── TOPBAR / NAVBAR ────────────────────────────────────── */
-#topbar-wrapper,
-.topbar-wrapper {
-  background-color: var(--bg-surface) !important;
-  border-bottom: 1px solid var(--border) !important;
-}
-
-/* Breadcrumb */
-#breadcrumb a,
-#breadcrumb span,
-.breadcrumb a,
-.breadcrumb-item,
-.breadcrumb-item a {
-  color: var(--text-muted) !important;
-}
-
-#breadcrumb a:hover,
-.breadcrumb a:hover {
-  color: #ffffff !important;
-}
-
-/* Buscador */
-#search-wrapper,
-.search-wrapper {
-  background-color: var(--bg-input) !important;
-  border-color: var(--border-mid) !important;
-}
-
-#search-input,
-.search-input {
-  color: var(--text-main) !important;
-  background-color: transparent !important;
-}
-
-#search-input::placeholder {
-  color: var(--text-faint) !important;
-}
-
-/* Botón modo claro/oscuro */
-#mode-toggle-wrapper button,
-.mode-toggle {
-  color: var(--text-muted) !important;
-  border-color: var(--border) !important;
-  background: var(--bg-elevated) !important;
-}
-
-#mode-toggle-wrapper button:hover {
-  color: #ffffff !important;
-  border-color: var(--border-mid) !important;
-}
-
-
-/* ─── TIPOGRAFÍA ─────────────────────────────────────────── */
-h1, h2, h3, h4, h5, h6 {
-  color: #ffffff !important;
-}
-
-p, li, span, td, th {
-  color: var(--text-main);
-}
-
-/* Links */
-a {
-  color: var(--accent) !important;
-  text-decoration-color: var(--border-mid) !important;
-}
-
-a:hover {
-  color: var(--accent-hover) !important;
-  text-decoration-color: var(--border-mid) !important;
-}
-
-/* Texto secundario en metadatos de posts */
-.post-meta,
-.post-meta a,
-.text-muted,
-.post-date,
-time {
-  color: var(--text-muted) !important;
-}
-
-/* Separadores */
-hr {
-  border-color: var(--border) !important;
-}
-
-
-/* ─── TAGS & CATEGORÍAS ──────────────────────────────────── */
+/* ── TAGS & ETIQUETAS ─────────────────────────────────────── */
 .post-tag,
-.tag,
-.btn.btn-outline-primary.tag,
 a.post-tag,
-.categories a,
-#tag-cloud .tag-item,
-.tag-cloud .tag-item {
-  background-color: var(--tag-bg) !important;
-  border: 1px solid var(--border-mid) !important;
-  color: #aaaaaa !important;
+.tag,
+a.tag,
+.btn.tag,
+#tags .tag-item,
+.tag-item {
+  background-color: #0d0d0d !important;
+  border: 1px solid #2a2a2a !important;
+  color: #888888 !important;
   border-radius: 4px !important;
-  transition: all 0.15s ease !important;
+  transition: background 0.15s, color 0.15s, border-color 0.15s !important;
 }
 
 .post-tag:hover,
-.tag:hover,
 a.post-tag:hover,
-.categories a:hover,
-#tag-cloud .tag-item:hover,
-.tag-cloud .tag-item:hover {
-  background-color: var(--tag-hover) !important;
-  border-color: #555555 !important;
+.tag:hover,
+a.tag:hover,
+.btn.tag:hover,
+#tags .tag-item:hover,
+.tag-item:hover {
+  background-color: #1a1a1a !important;
+  border-color: #444444 !important;
   color: #ffffff !important;
 }
 
-/* Tag activo / seleccionado */
+/* Tag activo (página /tags/) */
 .post-tag.active,
+a.post-tag.active,
 .tag.active,
 a.tag.active {
-  background-color: #333333 !important;
-  border-color: #666666 !important;
+  background-color: #1e1e1e !important;
+  border-color: #555555 !important;
   color: #ffffff !important;
+  box-shadow: inset 0 0 0 1px #555555 !important;
 }
 
-/* Badge de conteo en tags */
-.tag-count,
-.post-tag .badge,
-.tag .badge {
-  background-color: #2a2a2a !important;
-  color: var(--text-faint) !important;
-  border: 1px solid var(--border) !important;
+/* ── CATEGORÍAS ───────────────────────────────────────────── */
+#categories,
+.categories-list {
+  background-color: transparent !important;
 }
 
-/* Categorías en árbol */
-#categories-wrapper .card,
+#categories .card,
 .categories-list .card {
-  background-color: var(--bg-surface) !important;
-  border-color: var(--border) !important;
+  background-color: #0a0a0a !important;
+  border: 1px solid #1a1a1a !important;
 }
 
-#categories-wrapper li a,
+.category-trigger,
+#categories li a,
 .categories-list li a {
-  color: #bbbbbb !important;
+  color: #aaaaaa !important;
 }
 
-#categories-wrapper li a:hover,
+.category-trigger:hover,
+#categories li a:hover,
 .categories-list li a:hover {
   color: #ffffff !important;
-  background-color: var(--bg-elevated) !important;
+  background-color: #111111 !important;
 }
 
-/* Número de posts por categoría */
-#categories-wrapper li a span,
-.categories-list .category-count {
-  color: var(--text-faint) !important;
+/* Número de posts junto a categoría */
+#categories li .me-2,
+.category-count {
+  color: #444444 !important;
 }
 
-
-/* ─── TABLA DE CONTENIDOS (TOC) ──────────────────────────── */
+/* ── TOC ──────────────────────────────────────────────────── */
 #toc-wrapper,
-.toc-wrapper,
-#panel-wrapper {
-  background-color: var(--bg-surface) !important;
-  border: 1px solid var(--border) !important;
+#panel-wrapper,
+.toc-wrapper {
+  background-color: #000000 !important;
+  border: 1px solid #1a1a1a !important;
   border-radius: 6px;
 }
 
-.toc a,
-#toc a {
-  color: var(--text-muted) !important;
+#toc a,
+.toc a {
+  color: #666666 !important;
 }
 
-.toc a:hover,
 #toc a:hover,
-.toc .active-link,
-#toc .active-link {
+.toc a:hover,
+#toc .active-link,
+.toc .active-link {
   color: #ffffff !important;
 }
 
-/* Cabecera "Contenidos" */
-#toc-title,
-.toc-header {
-  color: #888888 !important;
-  border-bottom: 1px solid var(--border) !important;
+/* Trending tags en panel lateral */
+#panel-wrapper .post-tag {
+  background-color: #0d0d0d !important;
+  border-color: #222222 !important;
+  color: #777777 !important;
 }
 
+#panel-wrapper .post-tag:hover {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
 
-/* ─── CÓDIGO ─────────────────────────────────────────────── */
-/* Código inline */
+/* ── CÓDIGO ───────────────────────────────────────────────── */
 code,
 code.highlighter-rouge {
-  background-color: #1a1a1a !important;
-  color: #e0e0e0 !important;
-  border: 1px solid var(--border) !important;
+  background-color: #111111 !important;
+  color: #dddddd !important;
+  border: 1px solid #222222 !important;
   border-radius: 3px;
+  padding: 1px 5px;
 }
 
-/* Bloques de código */
 .highlight,
 pre,
 pre.highlight,
-div.highlight {
-  background-color: #0d0d0d !important;
-  border: 1px solid var(--border) !important;
+div.highlight,
+figure.highlight {
+  background-color: #080808 !important;
+  border: 1px solid #1a1a1a !important;
   border-radius: 6px;
 }
 
 pre code {
   background-color: transparent !important;
   border: none !important;
-  color: #e0e0e0 !important;
+  color: #dddddd !important;
+  padding: 0;
 }
 
-/* Header del bloque de código (nombre de fichero, lenguaje) */
 .code-header,
 .filename,
-.highlight > .filepath {
-  background-color: #111111 !important;
-  border-bottom: 1px solid var(--border) !important;
-  color: #888888 !important;
+.highlight .code-header {
+  background-color: #0d0d0d !important;
+  border-bottom: 1px solid #1a1a1a !important;
+  color: #666666 !important;
 }
 
-/* Botón copiar */
-.copy-btn,
-button.copy {
-  color: #555555 !important;
-}
-
-.copy-btn:hover,
-button.copy:hover {
-  color: #cccccc !important;
-}
-
-/* Número de línea */
 .lineno {
-  color: #444444 !important;
-  border-right: 1px solid var(--border) !important;
+  color: #333333 !important;
+  border-right: 1px solid #1a1a1a !important;
 }
 
-
-/* ─── TABLAS ─────────────────────────────────────────────── */
+/* ── TABLAS ───────────────────────────────────────────────── */
+.table,
 table {
-  border-color: var(--border) !important;
+  color: #e8e8e8 !important;
+  border-color: #1e1e1e !important;
 }
 
+.table thead th,
 table thead th {
-  background-color: #111111 !important;
+  background-color: #0d0d0d !important;
   color: #cccccc !important;
-  border-bottom: 2px solid var(--border-mid) !important;
+  border-bottom: 2px solid #2a2a2a !important;
 }
 
-table tr:nth-child(odd) td {
-  background-color: #0f0f0f !important;
+.table tbody tr:nth-of-type(odd) td,
+table tbody tr:nth-of-type(odd) td {
+  background-color: #080808 !important;
 }
 
-table tr:nth-child(even) td {
-  background-color: var(--bg-surface) !important;
+.table tbody tr:nth-of-type(even) td,
+table tbody tr:nth-of-type(even) td {
+  background-color: #0d0d0d !important;
 }
 
 table td {
-  color: var(--text-main) !important;
-  border-color: var(--border) !important;
+  border-color: #1a1a1a !important;
 }
 
-
-/* ─── BLOCKQUOTE ─────────────────────────────────────────── */
+/* ── BLOCKQUOTE ───────────────────────────────────────────── */
 blockquote {
-  border-left: 3px solid var(--border-mid) !important;
-  background-color: #0f0f0f !important;
-  color: #999999 !important;
+  border-left: 3px solid #2a2a2a !important;
+  background-color: #080808 !important;
+  color: #888888 !important;
 }
 
 blockquote p {
-  color: #999999 !important;
+  color: #888888 !important;
 }
 
-
-/* ─── PROMPTS / CALLOUTS ─────────────────────────────────── */
-/* Todos los callouts en gris neutro */
+/* ── PROMPTS ──────────────────────────────────────────────── */
 .prompt-tip,
 .prompt-info,
 .prompt-warning,
 .prompt-danger {
-  background-color: #121212 !important;
-  border-left: 3px solid #333333 !important;
-  color: var(--text-main) !important;
+  background-color: #0a0a0a !important;
+  border-left: 3px solid #2a2a2a !important;
+  color: #e8e8e8 !important;
 }
 
-.prompt-tip > p:first-child::before,
-.prompt-info > p:first-child::before,
-.prompt-warning > p:first-child::before,
-.prompt-danger > p:first-child::before {
-  color: #777777 !important;
+/* ── PAGINACIÓN ───────────────────────────────────────────── */
+.page-link {
+  background-color: #0a0a0a !important;
+  border-color: #2a2a2a !important;
+  color: #888888 !important;
 }
 
-
-/* ─── SEARCH RESULTS ─────────────────────────────────────── */
-#search-result-wrapper,
-.search-result-wrapper {
-  background-color: var(--bg-surface) !important;
-  border: 1px solid var(--border) !important;
+.page-link:hover {
+  background-color: #161616 !important;
+  color: #ffffff !important;
 }
 
-.search-result-item,
-#search-results li,
+.page-item.active .page-link {
+  background-color: #1e1e1e !important;
+  border-color: #444444 !important;
+  color: #ffffff !important;
+}
+
+.page-item.disabled .page-link {
+  background-color: #080808 !important;
+  color: #333333 !important;
+}
+
+/* ── BÚSQUEDA — resultados ────────────────────────────────── */
+#search-result-wrapper {
+  background-color: #000000 !important;
+}
+
+#search-results h2,
 #search-result-list li {
-  border-bottom: 1px solid var(--border) !important;
+  border-bottom: 1px solid #1a1a1a !important;
+  color: #e8e8e8 !important;
 }
 
-.search-result-item:hover {
-  background-color: var(--bg-elevated) !important;
-}
-
-.search-result-title {
-  color: #cccccc !important;
-}
-
-.search-result-snippet {
-  color: var(--text-muted) !important;
-}
-
-/* Resaltado de coincidencia de búsqueda */
-mark,
-.search-result-snippet mark {
-  background-color: #333333 !important;
+mark {
+  background-color: #2a2a2a !important;
   color: #ffffff !important;
   border-radius: 2px;
   padding: 0 2px;
 }
 
+/* ── TIMELINE / ARCHIVO ───────────────────────────────────── */
+.timeline-year,
+.year {
+  color: #555555 !important;
+}
 
-/* ─── PAGINACIÓN ─────────────────────────────────────────── */
-.pagination .page-link {
-  background-color: var(--bg-surface) !important;
-  border-color: var(--border-mid) !important;
+.timeline-month,
+.month {
+  color: #333333 !important;
+}
+
+.archive-list li a,
+#archives li a {
   color: #aaaaaa !important;
 }
 
-.pagination .page-link:hover {
-  background-color: var(--bg-elevated) !important;
+.archive-list li a:hover,
+#archives li a:hover {
   color: #ffffff !important;
 }
 
-.pagination .page-item.active .page-link {
-  background-color: #333333 !important;
-  border-color: #555555 !important;
-  color: #ffffff !important;
+.archive-list .date,
+#archives .date {
+  color: #444444 !important;
 }
 
-.pagination .page-item.disabled .page-link {
-  color: var(--text-faint) !important;
-  background-color: var(--bg-surface) !important;
-}
-
-
-/* ─── BOTÓN "VOLVER ARRIBA" ──────────────────────────────── */
+/* ── BOTÓN VOLVER ARRIBA ──────────────────────────────────── */
 #back-to-top {
-  background-color: var(--bg-elevated) !important;
-  border-color: var(--border-mid) !important;
-  color: #888888 !important;
+  background-color: #111111 !important;
+  border: 1px solid #2a2a2a !important;
+  color: #666666 !important;
 }
 
 #back-to-top:hover {
-  background-color: #2a2a2a !important;
+  background-color: #1a1a1a !important;
   color: #ffffff !important;
 }
 
-
-/* ─── ARCHIVE / TIMELINE ─────────────────────────────────── */
-.timeline-year {
-  color: var(--text-muted) !important;
-}
-
-.timeline-month {
-  color: var(--text-faint) !important;
-}
-
-.timeline-dot::before {
-  background-color: #333333 !important;
-  border-color: var(--border-mid) !important;
-}
-
-.archive-list li a {
-  color: #bbbbbb !important;
-}
-
-.archive-list li a:hover {
-  color: #ffffff !important;
-}
-
-.archive-list .date {
-  color: var(--text-faint) !important;
-}
-
-
-/* ─── POST — cabecera ────────────────────────────────────── */
-.post-header h1,
-.post h1 {
-  color: #ffffff !important;
-}
-
-.post-meta .categories a,
-.post-meta .tags a {
-  color: var(--text-muted) !important;
-}
-
-.post-meta .categories a:hover,
-.post-meta .tags a:hover {
-  color: #ffffff !important;
-}
-
-/* Imagen de portada del post */
-.post-img-wrapper {
-  border: 1px solid var(--border) !important;
-}
-
-
-/* ─── POST — compartir ───────────────────────────────────── */
+/* ── COMPARTIR POST ───────────────────────────────────────── */
 .share-wrapper,
 #post-share {
-  border-top: 1px solid var(--border) !important;
+  border-top: 1px solid #1a1a1a !important;
 }
 
-.share-wrapper a,
-#post-share a {
-  color: var(--text-muted) !important;
-  border: 1px solid var(--border-mid) !important;
-  background: var(--bg-elevated) !important;
+.share-wrapper a {
+  color: #666666 !important;
+  border: 1px solid #222222 !important;
+  background: #0a0a0a !important;
 }
 
-.share-wrapper a:hover,
-#post-share a:hover {
+.share-wrapper a:hover {
   color: #ffffff !important;
-  border-color: #555555 !important;
+  border-color: #444444 !important;
 }
 
-
-/* ─── POST — posts relacionados ──────────────────────────── */
-.related-posts,
-#related-posts {
-  border-top: 1px solid var(--border) !important;
+/* ── COMENTARIOS ──────────────────────────────────────────── */
+.post-tail-wrapper {
+  border-top: 1px solid #1a1a1a !important;
 }
 
-.related-posts h3,
-#related-posts h3 {
-  color: #aaaaaa !important;
-}
-
-.related-post-date {
-  color: var(--text-faint) !important;
-}
-
-
-/* ─── COMMENTS (Disqus / Giscus / Utterances) ───────────── */
-.post-tail-wrapper,
-#disqus_thread {
-  border-top: 1px solid var(--border) !important;
-}
-
-
-/* ─── SCROLLBAR ──────────────────────────────────────────── */
+/* ── SCROLLBAR ────────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-base);
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #1e1e1e;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a3a;
+  background: #2e2e2e;
 }
 
-
-/* ─── SELECCIÓN DE TEXTO ─────────────────────────────────── */
+/* ── SELECCIÓN DE TEXTO ───────────────────────────────────── */
 ::selection {
-  background-color: #333333;
+  background-color: #2a2a2a;
   color: #ffffff;
 }
 
-
-/* ─── FOCUS OUTLINE (accesibilidad) ─────────────────────── */
+/* ── FOCUS ────────────────────────────────────────────────── */
 :focus-visible {
-  outline: 1px solid #555555 !important;
+  outline: 1px solid #444444 !important;
   outline-offset: 2px;
 }
 
-
-/* ─── IMÁGENES — fondo en modo oscuro ───────────────────── */
-img.dark,
-img[data-src].dark {
-  display: inline !important;
-}
-
-img.light,
-img[data-src].light {
-  display: none !important;
-}
-
-
-/* ─── OVERRIDE FINAL — ocultar toggle de modo si quieres ── */
-/*
- * Descomenta si quieres forzar siempre el modo oscuro y
- * ocultar el botón de cambio de tema al usuario:
- *
- */ 
-#mode-toggle-wrapper { display: none !important; }
+/* ── IMÁGENES DARK/LIGHT ──────────────────────────────────── */
+img.dark { display: inline !important; }
+img.light { display: none !important; }
