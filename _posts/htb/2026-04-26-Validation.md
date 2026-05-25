@@ -2,7 +2,7 @@
 title: Validation - HTB
 date: 2026-04-25
 mermaid: true
-categories: [HackTheBox]
+categories: [HackTheBox, "Linux"]
 image: 
   path: /assets/images/htb/validation/logo.png
 tags: [Linux, Easy, SQLi Union Based, SQL, Second Order]

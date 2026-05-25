@@ -2,7 +2,7 @@
 title: CodePartTwo - HTB
 date: 2026-04-26
 mermaid: true
-categories: [HackTheBox]
+categories: [HackTheBox, "Linux"]
 image: 
   path: /assets/images/htb/codeparttwo/logo.png
 tags: [Linux, Easy, Code Review, npbackup, RCE]
