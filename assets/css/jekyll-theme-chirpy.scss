@@ -76,13 +76,14 @@ div[class^="language-"] {
   padding-left: 1.5rem !important;
 }
 
-/* --- COLOR BLANCO PARA EL CONTENIDO ACTIVO (TOC) --- */
-#toc .toc-link.active {
+/* --- COLOR BLANCO PARA EL CONTENIDO ACTIVO (TOC) - CORREGIDO Y FORZADO --- */
+#toc .toc-link.is-active-link {
   color: #ffffff !important;
 }
 
-#toc .toc-item.active {
-  border-left-color: #ffffff !important;
+/* Forzado del pseudo-elemento (el palo vertical inyectado) a blanco */
+#toc .toc-link.is-active-link::before {
+  background-color: #ffffff !important;
 }
 
 /* --- LIMPIEZA ABSOLUTA E INTERACTIVA DE ENLACES (SIN LÍNEAS SUBRAYADAS) --- */
@@ -116,10 +117,6 @@ div[class^="language-"] {
 #toc .toc-link:hover {
   color: #ffffff !important; 
   text-decoration: none !important;
-}
-
-#toc .toc-link.active {
-  color: #ffffff !important;
 }
 
 /* --- ADAPTACIÓN DE TAGS AL DISEÑO OSCURO ABSOLUTO --- */
