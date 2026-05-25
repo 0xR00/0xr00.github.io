@@ -178,16 +178,65 @@ div[class^="language-"] {
 }
 
 /* ==========================================================================
-   SOLUCIÓN EXCLUSIVA MENÚ MÓVIL (Añadido sin alterar lo anterior)
+   SOLUCIÓN DEFINITIVA: PERSONALIZACIÓN CARTOON PARA TODOS LOS PROMPTS
    ========================================================================== */
 
-/* Cambia a blanco el texto activo dentro del menú móvil flotante */
-#toc-popup-content .toc-link[class*="is-active-link"] {
+/* 1. BLANQUEADO DE TEXTO: Forzado universal para todas las clases de prompts */
+.prompt-danger, .prompt-danger *,
+.prompt-warning, .prompt-warning *,
+.prompt-info, .prompt-info *,
+.prompt-tip, .prompt-tip * {
   color: #ffffff !important;
 }
 
-/* Cambia a blanco el palito vertical (::before) dentro del menú móvil flotante */
-#toc-popup-content .toc-link[class*="is-active-link"]::before {
-  background-color: #ffffff !important;
-  border-left-color: #ffffff !important;
+/* 2. PROMPT: DANGER (Rojo Fresa) */
+.prompt-danger {
+  background-color: rgba(255, 46, 76, 0.18) !important; 
+  border-left: 6px solid #ff2e4c !important;             
+  border-top: 1px solid rgba(255, 46, 76, 0.35) !important;
+  border-right: 1px solid rgba(255, 46, 76, 0.35) !important;
+  border-bottom: 1px solid rgba(255, 46, 76, 0.35) !important;
+  border-radius: 0.25rem !important;
+}
+.prompt-danger::before {
+  color: #ff2e4c !important;
+}
+
+/* 3. PROMPT: TIP (Verde Lima Cartoon) */
+.prompt-tip {
+  background-color: rgba(0, 230, 118, 0.15) !important; /* Verde translúcido */
+  border-left: 6px solid #00e676 !important;             /* Palo izquierdo verde eléctrico */
+  border-top: 1px solid rgba(0, 230, 118, 0.30) !important;
+  border-right: 1px solid rgba(0, 230, 118, 0.30) !important;
+  border-bottom: 1px solid rgba(0, 230, 118, 0.30) !important;
+  border-radius: 0.25rem !important;
+}
+.prompt-tip::before {
+  color: #00e676 !important; /* Icono verde brillante */
+}
+
+/* 4. PROMPT: INFO (Azul Cian Eléctrico) */
+.prompt-info {
+  background-color: rgba(0, 176, 255, 0.18) !important; /* Azul translúcido */
+  border-left: 6px solid #00b0ff !important;             /* Palo izquierdo cian vivo */
+  border-top: 1px solid rgba(0, 176, 255, 0.35) !important;
+  border-right: 1px solid rgba(0, 176, 255, 0.35) !important;
+  border-bottom: 1px solid rgba(0, 176, 255, 0.35) !important;
+  border-radius: 0.25rem !important;
+}
+.prompt-info::before {
+  color: #00b0ff !important; /* Icono azul brillante */
+}
+
+/* 5. PROMPT: WARNING (Amarillo Huevo / Naranja Saturado) */
+.prompt-warning {
+  background-color: rgba(255, 145, 0, 0.18) !important; /* Naranja/Amarillo translúcido */
+  border-left: 6px solid #ff9100 !important;             /* Palo izquierdo vibrante */
+  border-top: 1px solid rgba(255, 145, 0, 0.35) !important;
+  border-right: 1px solid rgba(255, 145, 0, 0.35) !important;
+  border-bottom: 1px solid rgba(255, 145, 0, 0.35) !important;
+  border-radius: 0.25rem !important;
+}
+.prompt-warning::before {
+  color: #ff9100 !important; /* Icono de advertencia en color vivo */
 }
