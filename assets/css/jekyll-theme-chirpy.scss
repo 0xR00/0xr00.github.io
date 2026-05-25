@@ -1,613 +1,177 @@
-/*
- * ============================================================
- *  CHIRPY — TEMA NEGRO PURO
- *  Archivo destino: assets/css/jekyll-theme-chirpy.scss
- *  (pega TODO esto al final, después del @import existente)
- *
- *  Negro: #000000  |  Superficie: #0d0d0d  |  Elevado: #161616
- *  Borde: #252525  |  Texto: #e8e8e8       |  Muted: #777777
- * ============================================================
- */
+---
+---
 
-/* ── FORZAR NEGRO EN TODOS LOS MODOS ──────────────────────── */
-/* Chirpy cambia html[data-mode]. Cubrimos todos los casos     */
+@use 'main{% if jekyll.environment == "production" %}.bundle{% endif %}';
 
-html,
-html[data-mode],
-html[data-mode="dark"],
-html[data-mode="light"],
-html:not([data-mode]) {
+[data-mode='dark'],
+html[data-mode='dark'] body {
+  /* --- FONDOS --- */
+  --body-bg: #000;
+  --main-bg: #000;
+  --sidebar-bg: #000;
+  --topbar-wrapper-bg: #000;
+  --card-bg: #0d0d0d;
+  --card-border-color: #1a1a1a;
 
-  /* Framework */
-  --body-bg:           #000000;
-  --main-bg:           #0d0d0d;
-  --main-border-color: #1e1e1e;
-  --mask-bg:           #0d0d0d;
+  /* --- TEXTOS (Ajustes para mayor blancura) --- */
+  --text-color: #f2f2f2;           /* Texto principal de los artículos */
+  --heading-color: #ffffff;        /* Títulos H1, H2, H3 */
+  --text-muted-color: #cccccc;     /* Texto secundario (fechas, descripciones) */
+  --post-list-text-color: #e6e6e6; /* Texto de descripciones en lista principal */
+  --sidebar-text-color: #f2f2f2;   /* Texto del menú lateral */
+  
+  /* --- CORRECCIONES ENLACES Y TOC NATIVOS --- */
+  --toc-active-color: #ffffff !important;
+  --sidebar-active-color: #ffffff !important;
+  --link-color: #a3a3a3 !important;
+  --link-underline-color: transparent !important; /* Volvemos invisible el subrayado nativo de Chirpy */
 
-  /* Texto */
-  --text-color:        #e8e8e8;
-  --text-muted-color:  #777777;
-  --heading-color:     #ffffff;
-  --label-color:       #999999;
-
-  /* Links */
-  --link-color:           #cccccc;
-  --link-underline-color: #333333;
-
-  /* Blockquote */
-  --blockquote-border-color: #2a2a2a;
-  --blockquote-text-color:   #666666;
-
-  /* Botones */
-  --button-bg:                 #111111;
-  --btn-border-color:          #2a2a2a;
-  --btn-backtotop-color:       #777777;
-  --btn-backtotop-border-color:#1e1e1e;
-  --btn-box-shadow:            #000000;
-  --btn-text-color:            #999999;
-  --btn-patinator-text-color:  #777777;
-  --btn-paginator-hover-color: #161616;
-  --btn-paginator-border-color:#2a2a2a;
-
-  /* Checkbox */
-  --checkbox-color:         #2a2a2a;
-  --checkbox-checked-color: #ffffff;
-
-  /* Imágenes */
-  --img-bg: radial-gradient(circle, #111111 0%, #000000 100%);
-  --shimmer-bg: linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(30,30,30,1) 50%,rgba(0,0,0,0) 100%);
-
-  /* Sidebar */
-  --sidebar-bg:           #000000;
-  --sidebar-muted-color:  #555555;
-  --sidebar-active-color: #ffffff;
-  --nav-cursor-color:     #777777;
-  --sidebar-btn-bg:       #111111;
-
-  /* Topbar */
-  --topbar-text-color:          #e8e8e8;
-  --topbar-wrapper-bg:          #000000;
-  --search-wrapper-bg:          rgba(13,13,13,0.95);
-  --search-wrapper-border-color:#2a2a2a;
-  --search-tag-bg:              #111111;
-  --search-icon-color:          #444444;
-  --input-focus-border-color:   #444444;
-
-  /* Posts */
-  --post-list-text-color: #cccccc;
-  --pin-bg:               #111111;
-  --pin-color:            #555555;
-  --card-border-color:    #1e1e1e;
-  --card-box-shadow:      rgba(0,0,0,0.8);
-  --relate-post-date:     rgba(255,255,255,0.3);
-  --footnote-target-bg:   #111111;
-  --dash-color:           #2a2a2a;
-  --kbd-wrap-color:       #2a2a2a;
-  --kbd-text-color:       #e8e8e8;
-  --kbd-bg-color:         #161616;
-
-  /* Tags */
-  --tag-bg:     #0d0d0d;
-  --tag-border: #2a2a2a;
-  --tag-shadow: #000000;
-  --tag-hover:  #1a1a1a;
-
-  /* Tabla */
-  --tb-odd-bg:       #080808;
-  --tb-border-color: #1e1e1e;
-
-  /* Prompts — todos en gris neutro */
-  --prompt-text-color:         rgba(232,232,232,0.9);
-  --prompt-tip-bg:             rgba(255,255,255,0.03);
-  --prompt-tip-icon-color:     #888888;
-  --prompt-info-bg:            rgba(255,255,255,0.03);
-  --prompt-info-icon-color:    #888888;
-  --prompt-warning-bg:         rgba(255,255,255,0.03);
-  --prompt-warning-icon-color: #888888;
-  --prompt-danger-bg:          rgba(255,255,255,0.03);
-  --prompt-danger-icon-color:  #888888;
-
-  /* Categorías */
-  --categories-hover-bg:         #111111;
-  --categories-icon-hover-color: #cccccc;
-
-  /* Timeline */
-  --timeline-color:          rgba(255,255,255,0.06);
-  --timeline-node-bg:        #333333;
-  --timeline-year-dot-color: #000000;
-
-  /* Código */
-  --code-header-text-color:  #888888;
-  --code-header-muted-color: #444444;
-  --code-header-icon-color:  #555555;
-  --clipboard-checked-color: #888888;
-  --filepath-text-color:     #aaaaaa;
+  /* --- NEUTRALIZAR VARIABLES DE BOTONES DE BOOTSTRAP --- */
+  --bs-btn-hover-border-color: #ffffff !important;
+  --bs-btn-active-border-color: #ffffff !important;
 }
 
-/* ── BODY & LAYOUT ────────────────────────────────────────── */
-body,
-#main-wrapper,
-.main-wrapper,
-main,
-.container-fluid,
-.container {
-  background-color: #000000 !important;
-  color: #e8e8e8 !important;
+body {
+  background-color: var(--body-bg, #000) !important;
 }
 
-/* ── SIDEBAR ──────────────────────────────────────────────── */
+#main-wrapper {
+  background-color: var(--main-bg, #000) !important;
+}
+
 #sidebar {
-  background-color: #000000 !important;
-  border-right: 1px solid #1a1a1a !important;
+  background-color: var(--sidebar-bg, #000) !important;
 }
 
-#sidebar .site-title a,
-#sidebar .site-title {
-  color: #ffffff !important;
-}
-
-#sidebar .site-subtitle {
-  color: #555555 !important;
-}
-
-#sidebar .nav-link,
-#sidebar li a {
-  color: #aaaaaa !important;
-}
-
-#sidebar .nav-link:hover,
-#sidebar .nav-link.active,
-#sidebar li a:hover {
-  color: #ffffff !important;
-  background-color: #111111 !important;
-}
-
-#sidebar .nav-link i {
-  color: #444444 !important;
-}
-
-#sidebar .nav-link:hover i,
-#sidebar .nav-link.active i {
-  color: #aaaaaa !important;
-}
-
-/* Botón toggle modo — ocultar */
-#mode-toggle {
-  display: none !important;
-}
-
-/* Footer del sidebar */
-.sidebar-bottom,
-#sidebar-bottom {
-  border-top: 1px solid #1a1a1a !important;
-}
-
-#sidebar-bottom a,
-.sidebar-bottom a {
-  color: #555555 !important;
-}
-
-#sidebar-bottom a:hover,
-.sidebar-bottom a:hover {
-  color: #cccccc !important;
-}
-
-/* ── TOPBAR ───────────────────────────────────────────────── */
 #topbar-wrapper {
+  background-color: var(--topbar-wrapper-bg, #000) !important;
+}
+
+/* --- AJUSTE MANUAL: BOTONES MACOS MÁS SEPARADOS --- */
+.code-header::before {
+  /* Botón izquierdo (Rojo) */
+  background-color: #ff5f56 !important;
+  
+  /* Espacio ideal entre los botones */
+  box-shadow: 1.2rem 0 0 0 #ffbd2e, 
+              2.4rem 0 0 0 #27c93f !important;
+}
+
+/* --- BLOQUES DE CÓDIGO EN NEGRO PURO --- */
+
+/* Fondo de la barra superior donde están los botones de Mac */
+.code-header {
   background-color: #000000 !important;
   border-bottom: 1px solid #1a1a1a !important;
 }
 
-#breadcrumb a,
-#breadcrumb span,
-.breadcrumb-item,
-.breadcrumb-item a,
-.breadcrumb-item + .breadcrumb-item::before {
-  color: #555555 !important;
-}
-
-#breadcrumb a:hover {
-  color: #ffffff !important;
-}
-
-/* Search */
-#search-wrapper {
-  background-color: #0d0d0d !important;
-  border: 1px solid #222222 !important;
-  border-radius: 6px !important;
-}
-
-#search-input {
-  background: transparent !important;
-  color: #e8e8e8 !important;
-}
-
-#search-input::placeholder {
-  color: #3a3a3a !important;
-}
-
-/* ── TIPOGRAFÍA ───────────────────────────────────────────── */
-h1, h2, h3, h4, h5, h6 {
-  color: #ffffff !important;
-}
-
-a {
-  color: #cccccc !important;
-}
-
-a:hover {
-  color: #ffffff !important;
-}
-
-.text-muted,
-.post-meta,
-.post-meta a,
-time,
-.post-date,
-small {
-  color: #666666 !important;
-}
-
-hr {
-  border-color: #1a1a1a !important;
-  opacity: 1 !important;
-}
-
-/* ── TARJETAS DE POSTS ────────────────────────────────────── */
-.card,
-.card-wrapper,
-.post-preview {
-  background-color: #0a0a0a !important;
-  border: 1px solid #1a1a1a !important;
-}
-
-.card:hover,
-.card-wrapper:hover,
-.post-preview:hover {
-  background-color: #111111 !important;
-  border-color: #2a2a2a !important;
-}
-
-.card-title a,
-.post-preview .preview-img + .post-content .card-title a {
-  color: #e8e8e8 !important;
-}
-
-.card-text,
-.card-body p {
-  color: #888888 !important;
-}
-
-/* Pin */
-.pin-wrapper,
-.pin {
-  background-color: #0d0d0d !important;
-  color: #555555 !important;
-}
-
-/* ── TAGS & ETIQUETAS ─────────────────────────────────────── */
-.post-tag,
-a.post-tag,
-.tag,
-a.tag,
-.btn.tag,
-#tags .tag-item,
-.tag-item {
-  background-color: #0d0d0d !important;
-  border: 1px solid #2a2a2a !important;
-  color: #888888 !important;
-  border-radius: 4px !important;
-  transition: background 0.15s, color 0.15s, border-color 0.15s !important;
-}
-
-.post-tag:hover,
-a.post-tag:hover,
-.tag:hover,
-a.tag:hover,
-.btn.tag:hover,
-#tags .tag-item:hover,
-.tag-item:hover {
-  background-color: #1a1a1a !important;
-  border-color: #444444 !important;
-  color: #ffffff !important;
-}
-
-/* Tag activo (página /tags/) */
-.post-tag.active,
-a.post-tag.active,
-.tag.active,
-a.tag.active {
-  background-color: #1e1e1e !important;
-  border-color: #555555 !important;
-  color: #ffffff !important;
-  box-shadow: inset 0 0 0 1px #555555 !important;
-}
-
-/* ── CATEGORÍAS ───────────────────────────────────────────── */
-#categories,
-.categories-list {
-  background-color: transparent !important;
-}
-
-#categories .card,
-.categories-list .card {
-  background-color: #0a0a0a !important;
-  border: 1px solid #1a1a1a !important;
-}
-
-.category-trigger,
-#categories li a,
-.categories-list li a {
-  color: #aaaaaa !important;
-}
-
-.category-trigger:hover,
-#categories li a:hover,
-.categories-list li a:hover {
-  color: #ffffff !important;
-  background-color: #111111 !important;
-}
-
-/* Número de posts junto a categoría */
-#categories li .me-2,
-.category-count {
-  color: #444444 !important;
-}
-
-/* ── TOC ──────────────────────────────────────────────────── */
-#toc-wrapper,
-#panel-wrapper,
-.toc-wrapper {
-  background-color: #000000 !important;
-  border: 1px solid #1a1a1a !important;
-  border-radius: 6px;
-}
-
-#toc a,
-.toc a {
-  color: #666666 !important;
-}
-
-#toc a:hover,
-.toc a:hover,
-#toc .active-link,
-.toc .active-link {
-  color: #ffffff !important;
-}
-
-/* Trending tags en panel lateral */
-#panel-wrapper .post-tag {
-  background-color: #0d0d0d !important;
-  border-color: #222222 !important;
-  color: #777777 !important;
-}
-
-#panel-wrapper .post-tag:hover {
-  background-color: #1a1a1a !important;
-  color: #ffffff !important;
-}
-
-/* ── CÓDIGO ───────────────────────────────────────────────── */
-code,
-code.highlighter-rouge {
-  background-color: #111111 !important;
-  color: #dddddd !important;
-  border: 1px solid #222222 !important;
-  border-radius: 3px;
-  padding: 1px 5px;
-}
-
+/* Fondo del contenedor del código */
+div[class^="language-"],
 .highlight,
-pre,
-pre.highlight,
-div.highlight,
-figure.highlight {
-  background-color: #080808 !important;
-  border: 1px solid #1a1a1a !important;
-  border-radius: 6px;
-}
-
-pre code {
-  background-color: transparent !important;
-  border: none !important;
-  color: #dddddd !important;
-  padding: 0;
-}
-
-.code-header,
-.filename,
-.highlight .code-header {
-  background-color: #0d0d0d !important;
-  border-bottom: 1px solid #1a1a1a !important;
-  color: #666666 !important;
-}
-
-.lineno {
-  color: #333333 !important;
-  border-right: 1px solid #1a1a1a !important;
-}
-
-/* ── TABLAS ───────────────────────────────────────────────── */
-.table,
-table {
-  color: #e8e8e8 !important;
-  border-color: #1e1e1e !important;
-}
-
-.table thead th,
-table thead th {
-  background-color: #0d0d0d !important;
-  color: #cccccc !important;
-  border-bottom: 2px solid #2a2a2a !important;
-}
-
-.table tbody tr:nth-of-type(odd) td,
-table tbody tr:nth-of-type(odd) td {
-  background-color: #080808 !important;
-}
-
-.table tbody tr:nth-of-type(even) td,
-table tbody tr:nth-of-type(even) td {
-  background-color: #0d0d0d !important;
-}
-
-table td {
-  border-color: #1a1a1a !important;
-}
-
-/* ── BLOCKQUOTE ───────────────────────────────────────────── */
-blockquote {
-  border-left: 3px solid #2a2a2a !important;
-  background-color: #080808 !important;
-  color: #888888 !important;
-}
-
-blockquote p {
-  color: #888888 !important;
-}
-
-/* ── PROMPTS ──────────────────────────────────────────────── */
-.prompt-tip,
-.prompt-info,
-.prompt-warning,
-.prompt-danger {
-  background-color: #0a0a0a !important;
-  border-left: 3px solid #2a2a2a !important;
-  color: #e8e8e8 !important;
-}
-
-/* ── PAGINACIÓN ───────────────────────────────────────────── */
-.page-link {
-  background-color: #0a0a0a !important;
-  border-color: #2a2a2a !important;
-  color: #888888 !important;
-}
-
-.page-link:hover {
-  background-color: #161616 !important;
-  color: #ffffff !important;
-}
-
-.page-item.active .page-link {
-  background-color: #1e1e1e !important;
-  border-color: #444444 !important;
-  color: #ffffff !important;
-}
-
-.page-item.disabled .page-link {
-  background-color: #080808 !important;
-  color: #333333 !important;
-}
-
-/* ── BÚSQUEDA — resultados ────────────────────────────────── */
-#search-result-wrapper {
+pre {
   background-color: #000000 !important;
 }
 
-#search-results h2,
-#search-result-list li {
-  border-bottom: 1px solid #1a1a1a !important;
-  color: #e8e8e8 !important;
+/* Borde exterior del bloque de código */
+div[class^="language-"] {
+  border: 1px solid #1a1a1a !important;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
-mark {
-  background-color: #2a2a2a !important;
-  color: #ffffff !important;
-  border-radius: 2px;
-  padding: 0 2px;
+/* Mueve el texto del lenguaje a la derecha para que no toque los botones separados */
+.code-header span {
+  padding-left: 1.5rem !important;
 }
 
-/* ── TIMELINE / ARCHIVO ───────────────────────────────────── */
-.timeline-year,
-.year {
-  color: #555555 !important;
-}
-
-.timeline-month,
-.month {
-  color: #333333 !important;
-}
-
-.archive-list li a,
-#archives li a {
-  color: #aaaaaa !important;
-}
-
-.archive-list li a:hover,
-#archives li a:hover {
+/* --- COLOR BLANCO PARA EL CONTENIDO ACTIVO (TOC) --- */
+#toc .toc-link.active {
   color: #ffffff !important;
 }
 
-.archive-list .date,
-#archives .date {
-  color: #444444 !important;
+#toc .toc-item.active {
+  border-left-color: #ffffff !important;
 }
 
-/* ── BOTÓN VOLVER ARRIBA ──────────────────────────────────── */
-#back-to-top {
-  background-color: #111111 !important;
-  border: 1px solid #2a2a2a !important;
-  color: #666666 !important;
+/* --- LIMPIEZA ABSOLUTA E INTERACTIVA DE ENLACES (SIN LÍNEAS SUBRAYADAS) --- */
+.post-content a,
+#main-wrapper a {
+  color: #a3a3a3 !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  transition: color 0.2s ease;
 }
 
-#back-to-top:hover {
-  background-color: #1a1a1a !important;
+/* Estado al pasar el cursor (Hover) y al seleccionar (Focus) */
+.post-content a:hover,
+.post-content a:focus,
+#main-wrapper a:hover,
+#main-wrapper a:focus {
+  color: #ffffff !important;
+  text-decoration: none !important; 
+  border-bottom: none !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* --- ENLACES DEL ÍNDICE DE CONTENIDOS (TOC) --- */
+#toc .toc-link {
+  color: #8a8a8a !important;
+  transition: color 0.2s ease, border-left-color 0.2s ease;
+}
+
+#toc .toc-link:hover {
+  color: #ffffff !important; 
+  text-decoration: none !important;
+}
+
+#toc .toc-link.active {
   color: #ffffff !important;
 }
 
-/* ── COMPARTIR POST ───────────────────────────────────────── */
-.share-wrapper,
-#post-share {
-  border-top: 1px solid #1a1a1a !important;
+/* --- ADAPTACIÓN DE TAGS AL DISEÑO OSCURO ABSOLUTO --- */
+
+/* Estado normal de las etiquetas (Post tags y Trending tags del lateral) */
+.tag,
+.post-tag,
+[class*="tag"],
+.btn-outline-primary {
+  background-color: #0d0d0d !important;      
+  color: #cccccc !important;                 
+  border: 1px solid #1a1a1a !important;      
+  transition: all 0.2s ease !important;      
+  box-shadow: none !important;
 }
 
-.share-wrapper a {
-  color: #666666 !important;
-  border: 1px solid #222222 !important;
-  background: #0a0a0a !important;
+/* Cantidad numérica dentro de la tag */
+.tag span,
+.post-tag span,
+[class*="tag"] .text-muted {
+  color: #8a8a8a !important;                 
 }
 
-.share-wrapper a:hover {
+/* --- ELIMINACIÓN TOTAL DEL AZUL (HOVER, FOCUS, ACTIVE) --- */
+.tag:hover,
+.post-tag:hover,
+[class*="tag"]:hover,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary:focus-visible,
+#access-tags a:hover {
+  background-color: #1a1a1a !important;      /* Fondo gris oscuro en hover */
+  color: #ffffff !important;                 /* Texto blanco brillante */
+  border-color: #ffffff !important;          /* Forzamos borde blanco puro */
+  box-shadow: none !important;                /* Destruye el resplandor azul de Bootstrap */
+  text-decoration: none !important;
+}
+
+/* Asegurar que los números interiores también cambien a blanco en hover */
+.tag:hover span,
+.post-tag:hover span,
+[class*="tag"]:hover .text-muted,
+.btn-outline-primary:hover span {
   color: #ffffff !important;
-  border-color: #444444 !important;
 }
-
-/* ── COMENTARIOS ──────────────────────────────────────────── */
-.post-tail-wrapper {
-  border-top: 1px solid #1a1a1a !important;
-}
-
-/* ── SCROLLBAR ────────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1e1e1e;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2e2e2e;
-}
-
-/* ── SELECCIÓN DE TEXTO ───────────────────────────────────── */
-::selection {
-  background-color: #2a2a2a;
-  color: #ffffff;
-}
-
-/* ── FOCUS ────────────────────────────────────────────────── */
-:focus-visible {
-  outline: 1px solid #444444 !important;
-  outline-offset: 2px;
-}
-
-/* ── IMÁGENES DARK/LIGHT ──────────────────────────────────── */
-img.dark { display: inline !important; }
-img.light { display: none !important; }
