@@ -17,3 +17,5 @@ Si rellenamos el formulario vemos que se tramita una petición por el método `P
 Si vamos a `Debugger` y vemos que se estár renderizando de código JavaScript y lo vamos leyendo encontraremos lo siguiente:
 
 ![](/assets/images/htb/challenges/opensecret/3.png)
+
+-- -
