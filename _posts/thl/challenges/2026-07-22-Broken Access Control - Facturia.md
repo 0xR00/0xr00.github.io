@@ -1,6 +1,6 @@
 ---
 title: Broken Access Control - Facturia (IDOR) - THL
-date: 2026-07-17
+date: 2026-07-22
 mermaid: true
 categories: [TheHackersLabs, "Owasp Labs"]
 image: 
