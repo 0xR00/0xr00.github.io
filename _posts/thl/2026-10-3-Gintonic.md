@@ -8,7 +8,7 @@ image:
 tags: [Linux, Medium, XXE]
 ---
 
-# Enumeration
+## Enumeration
 Vamos a realizar un escaneo de la red para encontrar la máquina:
 ```bash
 ┌──(kali㉿kali)-[~/Desktop/thl/Gintonic]
@@ -158,9 +158,9 @@ Vamos a acceder al subdominio:
 
 ![](/assets/images/thl/gintonic/2.png)
 
-# Shell as fermin
+## Shell as fermin
 
-## XML External Entity (XXE)
+### XML External Entity (XXE)
 
 Vamos a poner cualquier dato a ver que ocurre:
 
@@ -201,7 +201,7 @@ Bien!! Hemos podido leer el `/etc/passwd` mediante una entidad externa usando el
 
 Vemos que existe el usaurio `fermin`, intentando leer archivos como `id_rsa` no logramos nada con exito. 
 
-## Brute Force SSH
+### Brute Force SSH
 
 Vamos a intentar realizar un ataque de fuerza bruta al usuario `fermin`:
 
@@ -244,7 +244,7 @@ permitted by applicable law.
 Last login: Thu Aug 15 12:00:17 2024 from 192.168.1.41
 fermin@TheHackersLabs-Gintonic:~$
 ```
-# Shell as root
+## Shell as root
 Vamos a enumerar que binarios en el sistema tienen el permiso SUID:
 ```bash
 fermin@TheHackersLabs-Gintonic:~$ find / -perm -4000 -ls 2>/dev/null 
