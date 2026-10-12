@@ -92,6 +92,16 @@ html:not([data-mode]) {
   --toc-popup-border-color: #1a1a1a;
 }
 
+/* Variable de borde solo dentro de la interfaz (no llega al contenido del post) */
+#toc-wrapper,
+#panel-wrapper,
+#topbar,
+#sidebar,
+footer,
+.toc-border-cover {
+  --main-border-color: #1a1a1a;
+}
+
 .toc-border-cover,
 #toc-wrapper,
 #toc-wrapper .panel-heading,
