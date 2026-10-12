@@ -7,27 +7,84 @@
 {%- endif -%}
 ';
 
-/* Fondo negro para toda la web */
+/* ============================================================
+   Fondo negro para toda la web (Chirpy)
+   Se sobrescriben las variables del tema en claro y oscuro,
+   para que no quede ningún gris de fondo.
+   ============================================================ */
+
+:root,
+html[data-mode='light'],
+html[data-mode='dark'],
+html:not([data-mode]) {
+  --main-bg: #000000;
+  --mask-bg: #000000;
+  --topbar-bg: #000000;
+  --sidebar-bg: #000000;
+  --search-wrapper-bg: #000000;
+  --card-bg: #010101;
+  --card-hover-bg: #0a0a0a;
+  --footer-bg: #000000;
+  --panel-bg: #000000;
+  --toc-popup-bg: #000000;
+  --button-bg: #000000;
+  --btn-backtotop-bg: #000000;
+  --tb-odd-bg: #000000;
+  --tb-even-bg: #050505;
+  --kbd-bg: #0a0a0a;
+  --inline-code-bg: #0a0a0a;
+  --highlight-pre-bg: #0a0a0a;
+  --highlight-bg-color: #0a0a0a;
+  --blockquote-bg: #000000;
+  --prompt-tip-bg: #000000;
+  --prompt-info-bg: #000000;
+  --prompt-warning-bg: #000000;
+  --prompt-danger-bg: #000000;
+  --timeline-bg: #000000;
+}
+
 html,
 body,
 #main-wrapper,
 #topbar,
+#topbar-wrapper,
 #sidebar,
 #search,
+#search-result-wrapper,
+#search-wrapper,
 #panel-wrapper,
+#access-lastmod,
+#access-tags,
+#core-wrapper,
+#tail-wrapper,
+#post-extend-wrapper,
+#related-posts,
+#disqus_thread,
+#back-to-top,
 main,
-footer {
+footer,
+header,
+aside,
+nav {
   background-color: #000000 !important;
+  background-image: none !important;
 }
 
+/* Tarjetas y contenido */
 article,
 .post-preview,
 .post-content,
 .card,
-.card-wrapper {
-background-color: #010101 !important;
+.card-wrapper,
+.post-tail-wrapper,
+.post-navigation .btn,
+#panel-wrapper .panel-heading,
+#panel-wrapper .access,
+#panel-wrapper .post {
+  background-color: #010101 !important;
 }
 
+/* Tabla de contenidos */
 #toc-wrapper,
 #toc-wrapper .panel-heading,
 #toc-wrapper #toc,
@@ -35,4 +92,103 @@ background-color: #010101 !important;
 #toc-wrapper ul,
 #toc-wrapper li {
   background-color: #000000 !important;
+}
+
+/* Código, citas, tablas y otros elementos que suelen salir grises */
+div[class^='language-'],
+div.highlighter-rouge,
+figure.highlight,
+.highlight,
+.highlight pre,
+.highlight table,
+.highlight td,
+.highlight .rouge-table,
+.highlight .rouge-gutter,
+.highlight .rouge-code,
+pre,
+code,
+kbd,
+blockquote,
+.table-wrapper,
+.table-wrapper table,
+.table-wrapper th,
+.table-wrapper td,
+.prompt-tip,
+.prompt-info,
+.prompt-warning,
+.prompt-danger,
+.search-result-dropdown,
+#search-results,
+#search-input,
+.input-group,
+.input-group-text,
+.form-control,
+.btn,
+.dropdown-menu,
+.popup,
+.toc-popup,
+#mask,
+.mask,
+.badge,
+.post-tag,
+.tag,
+.page-link,
+.pagination,
+.pagination .page-item .page-link,
+.access,
+.panel-heading,
+.footer-content,
+.hr,
+.loaded,
+.preview-img,
+.img-link {
+  background-color: #000000 !important;
+}
+
+/* Código en línea y teclas con un negro apenas distinto para que se lean */
+:not(pre) > code,
+kbd {
+  background-color: #0a0a0a !important;
+}
+
+/* Bordes grises -> borde sutil oscuro */
+#topbar,
+#sidebar .sidebar-bottom,
+.post-tail-wrapper,
+.post-meta,
+.card,
+.card-wrapper,
+.search-result-dropdown,
+#search-input,
+.input-group,
+.table-wrapper table,
+.table-wrapper th,
+.table-wrapper td,
+blockquote,
+footer,
+hr {
+  border-color: #1a1a1a !important;
+}
+
+/* Scrollbars (suelen verse grises) */
+* {
+  scrollbar-color: #222222 #000000;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background-color: #000000 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #222222 !important;
+}
+
+/* Autocompletado del navegador en el buscador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #000000 inset !important;
+  box-shadow: 0 0 0 1000px #000000 inset !important;
 }
