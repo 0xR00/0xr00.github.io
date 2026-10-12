@@ -94,6 +94,57 @@ article,
   background-color: #000000 !important;
 }
 
+/* Índice (TOC) a la derecha: fondo, borde, barras y textos grises */
+:root,
+html[data-mode='light'],
+html[data-mode='dark'],
+html:not([data-mode]) {
+  --toc-highlight: #ffffff;
+  --toc-popup-border-color: #1a1a1a;
+  --main-border-color: #1a1a1a;
+}
+
+.toc-border-cover,
+#toc-wrapper,
+#toc-wrapper .panel-heading,
+#toc-wrapper nav,
+#toc-wrapper .toc-list,
+#toc-wrapper .toc-list-item,
+#toc-wrapper .toc-list-item > a,
+#toc-wrapper .toc-link {
+  background-color: #000000 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+#toc-wrapper {
+  border-left-color: #1a1a1a !important;
+}
+
+/* Barrita vertical de cada enlace */
+#toc-wrapper .toc-link::before {
+  background-color: #1a1a1a !important;
+}
+
+#toc-wrapper .toc-link.is-active-link::before,
+#toc-wrapper .toc-list-item.is-active-li > .toc-link::before {
+  background-color: #ffffff !important;
+}
+
+/* Texto: claro en vez de gris */
+#toc-wrapper .panel-heading {
+  color: #ffffff !important;
+}
+
+#toc-wrapper .toc-link {
+  color: #b5b5b5 !important;
+}
+
+#toc-wrapper .toc-link:hover,
+#toc-wrapper .toc-link.is-active-link {
+  color: #ffffff !important;
+}
+
 /* Código, citas, tablas y otros elementos que suelen salir grises */
 div[class^='language-'],
 div.highlighter-rouge,
