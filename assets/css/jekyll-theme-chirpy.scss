@@ -28,6 +28,11 @@ article,
 background-color: #010101 !important;
 }
 
-.toc-border-cover.z-3 {
+#toc-wrapper,
+#toc-wrapper .panel-heading,
+#toc-wrapper #toc,
+#toc-wrapper nav,
+#toc-wrapper ul,
+#toc-wrapper li {
   background-color: #000000 !important;
 }
