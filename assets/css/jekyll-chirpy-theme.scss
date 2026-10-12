@@ -1,0 +1,263 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/*
+ * =========================================================
+ *  Chirpy — Pure Black Theme Override
+ *  Archivo: assets/css/style.scss
+ *  Coloca este archivo en esa ruta y Jekyll lo pilla solo.
+ *  En _config.yml pon: theme_mode: dark
+ * =========================================================
+ */
+
+/* ── Variables CSS de Chirpy (modo oscuro) ── */
+[data-mode="dark"] {
+  --main-bg:             #000000;
+  --sidebar-bg:          #0d0d0d;
+  --topbar-bg:           rgba(0, 0, 0, 0.95);
+  --card-bg:             #0d0d0d;
+  --tag-bg:              #111111;
+  --search-bg:           #0d0d0d;
+  --btn-backtotop-bg:    #111111;
+  --btn-border-color:    #1a1a1a;
+
+  --text-color:          #e8e8e8;
+  --text-muted-color:    #888888;
+  --text-muted-hightlight-color: #aaaaaa;
+  --heading-color:       #f0f0f0;
+  --label-color:         #aaaaaa;
+  --blockquote-border-color: #2a2a2a;
+  --blockquote-text-color:   #888888;
+
+  --link-color:          #7c6af7;
+  --link-underline-color: #7c6af7;
+  --btn-active-bg:       #7c6af7;
+  --btn-active-border:   #7c6af7;
+  --btn-backtotop-color: #7c6af7;
+
+  --sidebar-muted-color:  #666666;
+  --sidebar-active-color: #7c6af7;
+  --sidebar-btn-bg:       #111111;
+  --sidebar-border-color: #1a1a1a;
+  --nav-cursor-color:     #7c6af7;
+
+  --search-wrapper-border-color: #2a2a2a;
+  --search-tag-bg:        #111111;
+  --search-icon-color:    #666666;
+  --input-focus-border-color: #7c6af7;
+
+  --code-bg:             #0f0f0f;
+  --code-color:          #c9d1d9;
+  --code-header-bg:      #111111;
+  --code-header-text-color: #888888;
+  --code-header-icon-color: #555555;
+  --code-header-icon-hover-color: #aaaaaa;
+  --highlight-bg-color:  #161b22;
+  --highlighter-rouge-color: #e06c75;
+
+  --border-color:        #1a1a1a;
+  --rule-color:          #1a1a1a;
+
+  --post-tag-bg:         #111111;
+  --toc-highlight:       #7c6af7;
+  --toc-border-color:    #1a1a1a;
+
+  --tb-odd-bg:           #050505;
+  --tb-even-bg:          #0d0d0d;
+  --tb-border-color:     #1a1a1a;
+
+  --categories-border:   rgba(124, 106, 247, 0.3);
+  --categories-hover-bg: rgba(124, 106, 247, 0.1);
+  --categories-icon-hover-color: #7c6af7;
+
+  --timeline-color:      rgba(124, 106, 247, 0.4);
+  --timeline-node-bg:    #7c6af7;
+
+  --checkbox-color:      #7c6af7;
+  --img-bg:              transparent;
+}
+
+/* ── Fondo negro puro ── */
+body {
+  background-color: #000000 !important;
+  color: #e8e8e8 !important;
+}
+
+#main-wrapper {
+  background-color: #000000 !important;
+}
+
+/* ── Sidebar ── */
+#sidebar {
+  background-color: #0d0d0d !important;
+  border-right: 1px solid #1a1a1a !important;
+}
+
+#sidebar .site-title a { color: #f0f0f0 !important; }
+#sidebar .site-subtitle { color: #666666 !important; }
+#sidebar a { color: #aaaaaa !important; }
+#sidebar a:hover,
+#sidebar .nav-link.active { color: #7c6af7 !important; }
+#sidebar .nav-item .nav-link.active i,
+#sidebar .nav-item .nav-link:hover i { color: #7c6af7 !important; }
+
+/* ── Topbar ── */
+#topbar-wrapper {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  border-bottom: 1px solid #1a1a1a !important;
+  backdrop-filter: blur(8px);
+}
+
+#search-wrapper {
+  background-color: #0d0d0d !important;
+  border: 1px solid #2a2a2a !important;
+}
+
+#search-input {
+  background-color: transparent !important;
+  color: #e8e8e8 !important;
+}
+
+/* ── Cards / Posts ── */
+.card,
+.post-preview {
+  background-color: #0d0d0d !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.post-preview {
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-preview:hover {
+  border-color: #7c6af7 !important;
+  box-shadow: 0 0 0 1px rgba(124, 106, 247, 0.2),
+              0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ── Links ── */
+a { color: #7c6af7 !important; }
+a:hover { color: #a89cf8 !important; }
+
+.post-content a {
+  color: #7c6af7 !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 106, 247, 0.4);
+}
+.post-content a:hover {
+  color: #a89cf8 !important;
+  text-decoration-color: #a89cf8;
+}
+
+/* ── Tags ── */
+.post-tag,
+.btn.btn-outline-primary {
+  background-color: #111111 !important;
+  border-color: #2a2a2a !important;
+  color: #888888 !important;
+}
+.post-tag:hover,
+.btn.btn-outline-primary:hover {
+  background-color: rgba(124, 106, 247, 0.15) !important;
+  border-color: #7c6af7 !important;
+  color: #7c6af7 !important;
+}
+
+/* ── Código ── */
+div.highlight, figure.highlight {
+  background-color: #0f0f0f !important;
+  border: 1px solid #1a1a1a !important;
+  border-radius: 6px;
+}
+.code-header {
+  background-color: #111111 !important;
+  border-bottom: 1px solid #1a1a1a !important;
+}
+code {
+  background-color: #111111 !important;
+  color: #e06c75 !important;
+  border-radius: 3px;
+}
+pre code {
+  background-color: transparent !important;
+  color: #c9d1d9 !important;
+}
+
+/* ── TOC ── */
+#toc-wrapper {
+  background-color: #0d0d0d !important;
+  border: 1px solid #1a1a1a !important;
+  border-radius: 8px;
+}
+#toc a { color: #888888 !important; }
+#toc a:hover,
+#toc li.active > a { color: #7c6af7 !important; }
+
+/* ── Blockquote ── */
+blockquote {
+  border-left: 3px solid #7c6af7 !important;
+  background-color: rgba(124, 106, 247, 0.05) !important;
+  color: #888888 !important;
+}
+
+/* ── Tablas ── */
+table thead { background-color: #111111 !important; color: #f0f0f0 !important; }
+table tbody tr:nth-child(odd)  { background-color: #050505 !important; }
+table tbody tr:nth-child(even) { background-color: #0d0d0d !important; }
+table td, table th { border-color: #1a1a1a !important; }
+
+/* ── Paginación ── */
+.pagination .page-item .page-link {
+  background-color: #0d0d0d !important;
+  border-color: #1a1a1a !important;
+  color: #888888 !important;
+}
+.pagination .page-item.active .page-link {
+  background-color: #7c6af7 !important;
+  border-color: #7c6af7 !important;
+  color: #ffffff !important;
+}
+.pagination .page-item .page-link:hover {
+  background-color: rgba(124, 106, 247, 0.15) !important;
+  color: #7c6af7 !important;
+}
+
+/* ── Footer ── */
+footer {
+  background-color: #0d0d0d !important;
+  border-top: 1px solid #1a1a1a !important;
+  color: #555555 !important;
+}
+footer a { color: #666666 !important; }
+footer a:hover { color: #7c6af7 !important; }
+
+/* ── Separadores ── */
+hr { border-color: #1a1a1a !important; }
+
+/* ── Back to top ── */
+#back-to-top {
+  background-color: #111111 !important;
+  color: #7c6af7 !important;
+  border: 1px solid #2a2a2a !important;
+}
+
+/* ── Alerts / Prompts ── */
+.prompt-tip     { background-color: rgba(72, 209, 124, 0.08) !important; border-color: rgba(72, 209, 124, 0.4) !important; }
+.prompt-info    { background-color: rgba(124, 106, 247, 0.08) !important; border-color: rgba(124, 106, 247, 0.4) !important; }
+.prompt-warning { background-color: rgba(255, 183, 77, 0.08) !important;  border-color: rgba(255, 183, 77, 0.4) !important; }
+.prompt-danger  { background-color: rgba(224, 108, 117, 0.08) !important; border-color: rgba(224, 108, 117, 0.4) !important; }
+
+/* ── Scrollbar (Chromium) ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #7c6af7; }
+
+/* ── Selección de texto ── */
+::selection {
+  background-color: rgba(124, 106, 247, 0.3);
+  color: #ffffff;
+}
