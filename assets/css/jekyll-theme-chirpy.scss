@@ -29,17 +29,6 @@ html:not([data-mode]) {
   --toc-popup-bg: #000000;
   --button-bg: #000000;
   --btn-backtotop-bg: #000000;
-  --tb-odd-bg: #000000;
-  --tb-even-bg: #050505;
-  --kbd-bg: #0a0a0a;
-  --inline-code-bg: #0a0a0a;
-  --highlight-pre-bg: #0a0a0a;
-  --highlight-bg-color: #0a0a0a;
-  --blockquote-bg: #000000;
-  --prompt-tip-bg: #000000;
-  --prompt-info-bg: #000000;
-  --prompt-warning-bg: #000000;
-  --prompt-danger-bg: #000000;
   --timeline-bg: #000000;
 }
 
@@ -101,7 +90,6 @@ html[data-mode='dark'],
 html:not([data-mode]) {
   --toc-highlight: #ffffff;
   --toc-popup-border-color: #1a1a1a;
-  --main-border-color: #1a1a1a;
 }
 
 .toc-border-cover,
@@ -119,6 +107,38 @@ html:not([data-mode]) {
 
 #toc-wrapper {
   border-left-color: #1a1a1a !important;
+}
+
+/* Degradados de desvanecido arriba y abajo del índice (las bandas grises) */
+.toc-border-cover::before,
+.toc-border-cover::after,
+#toc-wrapper::before,
+#toc-wrapper::after,
+#toc-wrapper nav::before,
+#toc-wrapper nav::after,
+#toc-wrapper #toc::before,
+#toc-wrapper #toc::after,
+#toc-wrapper > .toc-list::before,
+#toc-wrapper > .toc-list::after,
+#panel-wrapper::before,
+#panel-wrapper::after,
+#panel-wrapper .access::before,
+#panel-wrapper .access::after {
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+#toc-wrapper,
+#toc-wrapper nav,
+#panel-wrapper {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  filter: none !important;
 }
 
 /* Barrita vertical de cada enlace */
@@ -145,64 +165,26 @@ html:not([data-mode]) {
   color: #ffffff !important;
 }
 
-/* Código, citas, tablas y otros elementos que suelen salir grises */
-div[class^='language-'],
-div.highlighter-rouge,
-figure.highlight,
-.highlight,
-.highlight pre,
-.highlight table,
-.highlight td,
-.highlight .rouge-table,
-.highlight .rouge-gutter,
-.highlight .rouge-code,
-pre,
-code,
-kbd,
-blockquote,
-.table-wrapper,
-.table-wrapper table,
-.table-wrapper th,
-.table-wrapper td,
-.prompt-tip,
-.prompt-info,
-.prompt-warning,
-.prompt-danger,
+/* Elementos de la interfaz (buscador, menús, paneles, footer).
+   No se toca el contenido de los posts (código, tablas, citas, prompts, etc.) */
 .search-result-dropdown,
 #search-results,
 #search-input,
 .input-group,
 .input-group-text,
 .form-control,
-.btn,
 .dropdown-menu,
 .popup,
 .toc-popup,
 #mask,
 .mask,
-.badge,
-.post-tag,
-.tag,
-.page-link,
-.pagination,
-.pagination .page-item .page-link,
 .access,
 .panel-heading,
-.footer-content,
-.hr,
-.loaded,
-.preview-img,
-.img-link {
+.footer-content {
   background-color: #000000 !important;
 }
 
-/* Código en línea y teclas con un negro apenas distinto para que se lean */
-:not(pre) > code,
-kbd {
-  background-color: #0a0a0a !important;
-}
-
-/* Bordes grises -> borde sutil oscuro */
+/* Bordes grises de la interfaz -> borde sutil oscuro */
 #topbar,
 #sidebar .sidebar-bottom,
 .post-tail-wrapper,
@@ -212,12 +194,7 @@ kbd {
 .search-result-dropdown,
 #search-input,
 .input-group,
-.table-wrapper table,
-.table-wrapper th,
-.table-wrapper td,
-blockquote,
-footer,
-hr {
+footer {
   border-color: #1a1a1a !important;
 }
 
