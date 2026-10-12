@@ -1,7 +1,8 @@
 ---
 ---
 
-/* Chirpy: conservar los estilos originales del tema */
+/* Carga del tema Chirpy */
+ /* prettier-ignore */
 @use 'main
 {%- if jekyll.environment == 'production' -%}
   .bundle
@@ -9,505 +10,439 @@
 ';
 
 /* =========================================================
-   CHIRPY — PURE BLACK EDITION
-   Fondo negro · Texto claro · Acentos morados
+   CHIRPY — TEMA NEGRO Y BLANCO
+   Fondo negro, texto blanco y código monocromático
    ========================================================= */
 
-/* Variables del tema en modo oscuro */
-[data-mode="dark"] {
+/* Variables del tema */
+:root,
+[data-mode="dark"],
+[data-mode="light"] {
   color-scheme: dark;
 
   --main-bg: #000000;
-  --sidebar-bg: #080808;
-  --topbar-bg: rgba(0, 0, 0, 0.96);
-  --card-bg: #080808;
-  --tag-bg: #111111;
-  --search-bg: #080808;
-  --btn-backtotop-bg: #111111;
-  --btn-border-color: #242424;
+  --mask-bg: #000000;
+  --sidebar-bg: #000000;
+  --topbar-bg: #000000;
+  --card-bg: #000000;
 
-  --text-color: #eeeeee;
-  --text-muted-color: #a0a0a0;
-  --text-muted-highlight-color: #d0d0d0;
+  --text-color: #ffffff;
+  --text-muted-color: #ffffff;
   --heading-color: #ffffff;
-  --label-color: #c0c0c0;
-  --blockquote-border-color: #765cf6;
-  --blockquote-text-color: #b0b0b0;
 
-  --link-color: #a394ff;
-  --link-underline-color: #8d7bff;
-  --btn-active-bg: #765cf6;
-  --btn-active-border: #765cf6;
-  --btn-backtotop-color: #a394ff;
+  --link-color: #ffffff;
+  --link-underline-color: transparent;
 
-  --sidebar-muted-color: #858585;
-  --sidebar-active-color: #a394ff;
-  --sidebar-btn-bg: #111111;
-  --sidebar-border-color: #202020;
-  --nav-cursor-color: #8d7bff;
+  --btn-border-color: transparent;
+  --btn-backtotop-color: #ffffff;
+  --btn-backtotop-border-color: transparent;
 
-  --search-wrapper-border-color: #292929;
-  --search-tag-bg: #151515;
-  --search-icon-color: #999999;
-  --input-focus-border-color: #8d7bff;
+  --toc-highlight: #ffffff;
+  --tag-border: transparent;
+  --tag-hover: #ffffff;
 
-  --code-bg: #0b0b0b;
-  --code-color: #e6edf3;
-  --code-header-bg: #101010;
-  --code-header-text-color: #b0b0b0;
-  --code-header-icon-color: #858585;
-  --code-header-icon-hover-color: #ffffff;
-  --highlight-bg-color: #0b0b0b;
-  --highlighter-rouge-color: #ff8b9a;
-
-  --border-color: #242424;
-  --rule-color: #242424;
-
-  --post-tag-bg: #111111;
-  --toc-highlight: #a394ff;
-  --toc-border-color: #242424;
-
-  --tb-odd-bg: #050505;
-  --tb-even-bg: #0c0c0c;
-  --tb-border-color: #242424;
-
-  --categories-border: rgba(141, 123, 255, 0.35);
-  --categories-hover-bg: rgba(141, 123, 255, 0.10);
-  --categories-icon-hover-color: #a394ff;
-
-  --timeline-color: rgba(141, 123, 255, 0.45);
-  --timeline-node-bg: #8d7bff;
-
-  --checkbox-color: #8d7bff;
-  --img-bg: transparent;
+  --blockquote-border-color: #ffffff;
+  --footnote-target-bg: #000000;
 }
 
-/* =========================================================
-   FONDO Y CONTENIDO
-   ========================================================= */
-
+/* Fondo general */
 html,
 body,
 #main-wrapper,
-#core-wrapper,
-main {
-  background-color: #000000;
+#topbar,
+#sidebar,
+#search,
+#panel-wrapper,
+main,
+footer,
+.content,
+.post,
+.post-preview,
+.card,
+.card-wrapper,
+.pagination,
+#archives,
+#page,
+#tail-wrapper {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
-body {
-  color: #eeeeee;
-}
-
+/* Texto y encabezados */
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  color: #ffffff;
-}
-
+h6,
 p,
 li,
+dt,
 dd,
-dt {
-  color: inherit;
+.post-title,
+.post-meta,
+.site-title,
+.site-subtitle,
+.nav-link,
+.nav-item,
+.breadcrumb,
+.breadcrumb-item,
+#toc,
+#toc a,
+footer,
+footer a,
+small,
+label {
+  color: #ffffff !important;
 }
 
-/* Separadores */
-hr {
-  border-color: #242424;
-  opacity: 1;
+/* Enlaces: blancos en todos los estados */
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active,
+.post a,
+.post-content a,
+.post-preview a,
+.card a,
+.nav-link,
+.nav-link:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-/* =========================================================
-   SIDEBAR
-   ========================================================= */
-
-#sidebar {
-  background-color: #080808;
-  border-right: 1px solid #202020;
-}
-
-#sidebar .site-title a {
-  color: #ffffff;
-}
-
-#sidebar .site-subtitle {
-  color: #888888;
-}
-
-#sidebar a {
-  color: #bdbdbd;
-}
-
-#sidebar a:hover,
-#sidebar .nav-link.active {
-  color: #a394ff;
-}
-
-#sidebar .nav-item .nav-link.active i,
-#sidebar .nav-item .nav-link:hover i {
-  color: #a394ff;
-}
-
-/* =========================================================
-   BARRA SUPERIOR Y BÚSQUEDA
-   ========================================================= */
-
-#topbar-wrapper {
-  background-color: rgba(0, 0, 0, 0.96);
-  border-bottom: 1px solid #202020;
-  backdrop-filter: blur(10px);
-}
-
-#search-wrapper {
-  background-color: #080808;
-  border: 1px solid #292929;
-  border-radius: 8px;
-}
-
-#search-input {
-  background-color: transparent;
-  color: #eeeeee;
-}
-
-#search-input::placeholder {
-  color: #777777;
-}
-
-/* =========================================================
-   TARJETAS Y ARTÍCULOS
-   ========================================================= */
-
+/* Eliminar sombras y efectos decorativos */
 .card,
-.post-preview {
-  background-color: #080808;
-  border: 1px solid #202020;
-}
-
-.post-preview {
-  border-radius: 10px;
-  transition: border-color 0.2s ease,
-              box-shadow 0.2s ease,
-              transform 0.2s ease;
-}
-
-.post-preview:hover {
-  border-color: #5d4bc4;
-  box-shadow: 0 0 0 1px rgba(141, 123, 255, 0.12),
-              0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.card,
+.card-wrapper,
 .post-preview,
-#main-wrapper {
-  color: #eeeeee;
+.tag,
+.pagination a,
+.btn,
+button,
+a,
+.nav-link {
+  box-shadow: none !important;
+  transition: none !important;
 }
 
-/* =========================================================
-   ENLACES
-   ========================================================= */
-
-a {
-  color: #a394ff;
-  transition: color 0.15s ease;
+a:hover,
+button:hover,
+.btn:hover,
+.card:hover,
+.card-wrapper:hover,
+.post-preview:hover,
+.pagination a:hover,
+.nav-link:hover,
+.tag:hover,
+#sidebar a:hover,
+#topbar a:hover {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  transform: none !important;
 }
 
-a:hover {
-  color: #c1b7ff;
+/* Navegación */
+#sidebar,
+#topbar,
+#search,
+#panel-wrapper {
+  background: #000000 !important;
+  border: none !important;
 }
 
-.post-content a {
-  color: #a394ff;
-  text-decoration: underline;
-  text-decoration-color: rgba(163, 148, 255, 0.4);
-  text-underline-offset: 3px;
+#sidebar .nav-link,
+#sidebar .nav-link:hover,
+#topbar .nav-link,
+#topbar .nav-link:hover {
+  color: #ffffff !important;
+  background: transparent !important;
 }
 
-.post-content a:hover {
-  color: #c1b7ff;
-  text-decoration-color: #c1b7ff;
-}
-
-/* =========================================================
-   ETIQUETAS Y BOTONES
-   ========================================================= */
-
+/* Etiquetas y categorías */
+.tag,
 .post-tag,
-.btn.btn-outline-primary {
-  background-color: #111111;
-  border-color: #292929;
-  color: #c0c0c0;
+.post-meta a,
+#tags a,
+#archives a {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: none !important;
 }
 
-.post-tag:hover,
-.btn.btn-outline-primary:hover {
-  background-color: rgba(141, 123, 255, 0.12);
-  border-color: #8d7bff;
-  color: #c1b7ff;
+/* Tarjetas y listados */
+.card,
+.card-wrapper,
+.post-preview,
+.pagination,
+.pagination a {
+  background: #000000 !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
 
 /* =========================================================
    BLOQUES DE CÓDIGO
    ========================================================= */
 
-/* Contenedor del código */
+/* Contenedores de código */
 div.highlight,
 figure.highlight,
-pre {
-  background-color: #090909;
-  color: #e6edf3;
-  border-color: #242424;
+.highlight,
+.highlighter-rouge,
+div[class*="language-"],
+figure[class*="language-"] {
+  background: #080808 !important;
+  color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
-div.highlight,
-figure.highlight {
-  border: 1px solid #242424;
-  border-radius: 9px;
-  overflow: hidden;
-}
-
-/* Área del código */
+/* Bloque pre */
+pre,
 .highlight pre,
-figure.highlight pre,
-pre.highlight {
-  background-color: #090909;
-  color: #e6edf3;
-  margin-bottom: 0;
-  border: 0;
+.highlighter-rouge pre,
+div.highlight pre,
+figure.highlight pre {
+  background: #080808 !important;
+  color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  padding: 1rem 1.2rem !important;
+  margin: 1rem 0 !important;
+  border-radius: 8px !important;
+
+  overflow-x: auto !important;
+  line-height: 1.7 !important;
+  font-size: 0.9rem !important;
+  tab-size: 4;
+}
+
+/* Código dentro de los bloques */
+pre code,
+.highlight code,
+.highlighter-rouge code {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+
+  padding: 0 !important;
+  border-radius: 0 !important;
+
+  font-family: "JetBrains Mono", "Fira Code", "Cascadia Code",
+    "SFMono-Regular", Consolas, monospace !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
 /* Código inline */
-code {
-  background-color: #151515;
-  color: #ff9da9;
-  border: 1px solid #252525;
-  border-radius: 4px;
-  padding: 0.12em 0.35em;
+p code,
+li code,
+td code,
+th code,
+blockquote code {
+  color: #ffffff !important;
+  background: #111111 !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 0.15em 0.35em !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
-/* Evitar que el código dentro de un bloque tenga fondo inline */
-pre code,
-.highlight code,
-figure.highlight code {
-  background-color: transparent;
-  color: inherit;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-}
-
-/* Cabecera de bloques de código */
-.code-header {
-  background-color: #101010;
-  color: #b0b0b0;
-  border-bottom: 1px solid #242424;
-}
-
-.code-header button,
-.code-header i {
-  color: #999999;
-}
-
-.code-header button:hover,
-.code-header i:hover {
-  color: #ffffff;
-}
-
-/* Resaltado de sintaxis Rouge */
+/* Sintaxis Rouge: todo blanco */
 .highlight .c,
 .highlight .c1,
 .highlight .cm,
 .highlight .cp,
-.highlight .cs {
-  color: #777777;
-  font-style: italic;
-}
-
+.highlight .cs,
+.highlight .err,
 .highlight .k,
+.highlight .kc,
 .highlight .kd,
 .highlight .kn,
 .highlight .kp,
 .highlight .kr,
-.highlight .ow {
-  color: #c792ea;
-}
-
+.highlight .kt,
+.highlight .o,
+.highlight .ow,
+.highlight .p,
+.highlight .n,
+.highlight .na,
+.highlight .nb,
+.highlight .nc,
+.highlight .nd,
+.highlight .ne,
+.highlight .nf,
+.highlight .ni,
+.highlight .nl,
+.highlight .nn,
+.highlight .no,
+.highlight .nt,
+.highlight .nv,
+.highlight .nx,
+.highlight .py,
+.highlight .l,
+.highlight .ld,
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
 .highlight .s,
 .highlight .s1,
 .highlight .s2,
 .highlight .sb,
 .highlight .sc,
 .highlight .sd,
+.highlight .se,
 .highlight .sh,
 .highlight .si,
-.highlight .sx {
-  color: #a5d6a7;
-}
-
-.highlight .na,
-.highlight .nc,
-.highlight .nd,
-.highlight .ne,
-.highlight .nf,
-.highlight .fm {
-  color: #82aaff;
-}
-
-.highlight .m,
-.highlight .mb,
-.highlight .mf,
-.highlight .mh,
-.highlight .mi,
-.highlight .mo,
-.highlight .il {
-  color: #f6c177;
-}
-
-.highlight .nt {
-  color: #ff8b9a;
-}
-
-.highlight .nv,
+.highlight .sr,
+.highlight .ss,
+.highlight .sx,
+.highlight .vc,
+.highlight .vg,
 .highlight .vi,
-.highlight .vg {
-  color: #f78c6c;
+.highlight .w,
+.highlight span,
+.highlight code,
+.highlight pre {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  text-shadow: none !important;
 }
 
-.highlight .o,
-.highlight .p {
-  color: #c9d1d9;
+/* Restaurar el fondo de los contenedores */
+div.highlight,
+figure.highlight,
+.highlight pre,
+.highlighter-rouge,
+.highlighter-rouge pre {
+  background-color: #080808 !important;
+}
+
+/* Números de línea */
+.highlight .lineno,
+.highlight .gutter,
+.highlight .gutter pre {
+  color: #ffffff !important;
+  background: #080808 !important;
+  border: none !important;
+}
+
+/* Barra de herramientas de código */
+.code-header,
+.code-header button,
+.code-header a,
+.code-header span {
+  background: #080808 !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.code-header button:hover,
+.code-header a:hover {
+  background: #080808 !important;
+  color: #ffffff !important;
 }
 
 /* =========================================================
-   TABLA DE CONTENIDOS
+   TABLAS, CITAS Y ELEMENTOS GENERALES
    ========================================================= */
 
-#toc-wrapper {
-  background-color: #080808;
-  border: 1px solid #242424;
-  border-radius: 9px;
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+  border-color: #333333 !important;
 }
-
-#toc a {
-  color: #aaaaaa;
-}
-
-#toc a:hover,
-#toc li.active > a {
-  color: #a394ff;
-}
-
-/* =========================================================
-   CITAS
-   ========================================================= */
 
 blockquote {
-  border-left: 3px solid #8d7bff;
-  background-color: rgba(141, 123, 255, 0.045);
-  color: #b0b0b0;
-  padding: 0.8rem 1rem;
-  border-radius: 0 6px 6px 0;
+  color: #ffffff !important;
+  background: #050505 !important;
+  border-left: 3px solid #ffffff !important;
+  box-shadow: none !important;
 }
 
-/* =========================================================
-   TABLAS
-   ========================================================= */
-
-table {
-  color: #e6e6e6;
-  border-color: #242424;
+/* Separadores */
+hr,
+.divider {
+  border-color: #333333 !important;
+  background-color: #333333 !important;
 }
 
-table thead {
-  background-color: #111111;
-  color: #ffffff;
+/* Botones */
+button,
+.btn,
+input[type="button"],
+input[type="submit"] {
+  color: #ffffff !important;
+  background: #000000 !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: none !important;
+  transition: none !important;
 }
 
-table tbody tr:nth-child(odd) {
-  background-color: #050505;
+button:hover,
+.btn:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  color: #ffffff !important;
+  background: #111111 !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
 }
 
-table tbody tr:nth-child(even) {
-  background-color: #0c0c0c;
+/* Campos de búsqueda y formularios */
+input,
+textarea,
+select {
+  color: #ffffff !important;
+  background: #080808 !important;
+  border: 1px solid #333333 !important;
+  box-shadow: none !important;
 }
 
-table td,
-table th {
-  border-color: #242424;
+input::placeholder,
+textarea::placeholder {
+  color: #aaaaaa !important;
 }
 
-/* =========================================================
-   PAGINACIÓN
-   ========================================================= */
-
-.pagination .page-item .page-link {
-  background-color: #080808;
-  border-color: #242424;
-  color: #b0b0b0;
+/* Selección de texto */
+::selection {
+  color: #000000 !important;
+  background: #ffffff !important;
 }
 
-.pagination .page-item.active .page-link {
-  background-color: #765cf6;
-  border-color: #765cf6;
-  color: #ffffff;
-}
-
-.pagination .page-item .page-link:hover {
-  background-color: #171326;
-  color: #c1b7ff;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-  background-color: #050505;
-  border-top: 1px solid #202020;
-  color: #858585;
-}
-
-footer a {
-  color: #aaaaaa;
-}
-
-footer a:hover {
-  color: #a394ff;
-}
-
-/* =========================================================
-   ALERTAS
-   ========================================================= */
-
-.prompt-tip {
-  background-color: rgba(72, 209, 124, 0.07);
-  border-color: rgba(72, 209, 124, 0.4);
-}
-
-.prompt-info {
-  background-color: rgba(141, 123, 255, 0.08);
-  border-color: rgba(141, 123, 255, 0.4);
-}
-
-.prompt-warning {
-  background-color: rgba(255, 183, 77, 0.08);
-  border-color: rgba(255, 183, 77, 0.4);
-}
-
-.prompt-danger {
-  background-color: rgba(255, 107, 129, 0.08);
-  border-color: rgba(255, 107, 129, 0.4);
-}
-
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
-
+/* Barra de desplazamiento */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -515,19 +450,26 @@ footer a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #292929;
-  border-radius: 5px;
+  background: #ffffff;
+  border: none;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #765cf6;
+  background: #ffffff;
 }
 
-/* =========================================================
-   SELECCIÓN DE TEXTO
-   ========================================================= */
+/* Evitar contornos decorativos al enfocar */
+*:focus {
+  outline-color: #ffffff !important;
+  box-shadow: none !important;
+}
 
-::selection {
-  background-color: rgba(141, 123, 255, 0.35);
-  color: #ffffff;
+/* Pie de página */
+footer,
+footer a,
+footer p {
+  color: #ffffff !important;
+  background: #000000 !important;
+  border-color: transparent !important;
 }
