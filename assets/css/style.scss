@@ -1,7 +1,11 @@
 ---
 ---
 
-@import "jekyll-theme-chirpy";
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
 
 /*
  * =========================================================
