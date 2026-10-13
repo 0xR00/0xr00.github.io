@@ -223,19 +223,26 @@ footer {
   background-color: #222222 !important;
 }
 
-/* Autocompletado del navegador en el buscador */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px #000000 inset !important;
-  box-shadow: 0 0 0 1000px #000000 inset !important;
+/* Zona de categorías */
+.categories {
+  --bs-card-cap-bg: #1a1a1a;
+  --bs-list-group-bg: #272727;
 }
 
-.categories .card-header {
+.categories .card-header,
+.categories.card .card-header {
   background-color: #1a1a1a !important;
 }
 
 .categories .list-group-item,
 .categories .list-group-item:last-child {
   background-color: #272727 !important;
+}
+
+/* Autocompletado del navegador en el buscador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #000000 inset !important;
+  box-shadow: 0 0 0 1000px #000000 inset !important;
 }
