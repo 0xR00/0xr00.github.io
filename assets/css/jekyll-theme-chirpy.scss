@@ -247,3 +247,7 @@ input:-webkit-autofill:focus {
 .btn.btn-outline-primary:not(.disabled):hover {
   border-color: white !important;
 }
+
+#search-results a, #search-hints .post-tag, a, .post-tags .post-tag:hover, .tag:hover {
+  color: white !important;
+}
