@@ -251,3 +251,12 @@ input:-webkit-autofill:focus {
 #search-results a, #search-hints .post-tag, a, .post-tags .post-tag:hover, .tag:hover {
   color: white !important;
 }
+
+.post-tail-wrapper .post-meta a:not(:hover), .content a:not(.img-link) {
+  color: white !important;
+}
+
+#toc-popup .is-active-link {
+  color: white !important;
+  font-weight: 600 !important;
+}
