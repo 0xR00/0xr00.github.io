@@ -241,5 +241,9 @@ input:-webkit-autofill:focus {
 
 .post-navigation 
 .btn:not(:hover) {
-  color: white
+  color: white !important;
+}
+
+.btn.btn-outline-primary:not(.disabled):hover {
+  border-color: white !important;
 }
