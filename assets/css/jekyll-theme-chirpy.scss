@@ -230,3 +230,11 @@ input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 1000px #000000 inset !important;
   box-shadow: 0 0 0 1000px #000000 inset !important;
 }
+
+.categories .card-header {
+  background-color: #1a1a1a;
+}
+
+.categories .list-group-item:last-child {
+  background-color: #272727;
+}
