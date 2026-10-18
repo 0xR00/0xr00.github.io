@@ -265,3 +265,88 @@ input:-webkit-autofill:focus {
   background-color: rgb(55, 54, 54) !important;
   
 }
+
+/* ============================================================
+   Code blocks — estética terminal macOS
+   ============================================================ */
+
+/* Wrapper con bordes redondeados y sombra */
+div[class*="language-"],
+.highlight-wrapper {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  border: 1px solid #222 !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.7) !important;
+  margin: 1.5rem 0 !important;
+}
+
+/* Barra de título estilo macOS */
+.code-header {
+  background: #1a1a1a !important;
+  border-bottom: 1px solid #2a2a2a !important;
+  padding: 8px 14px !important;
+  min-height: 38px;
+  justify-content: flex-start !important; /* dots + label | copy a la derecha */
+
+  /* Tres puntos: rojo / amarillo / verde */
+  &::before {
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f57;
+    box-shadow:
+      20px 0 0 0 #febc2e,
+      40px 0 0 0 #28c840;
+    margin-right: 52px; /* 40 desplazamiento + 12 del último círculo */
+  }
+
+  /* Etiqueta del lenguaje */
+  > span[data-label-text] {
+    font-size: 0.73rem;
+    color: #666 !important;
+
+    &::before {
+      color: #666 !important;
+    }
+  }
+
+  /* Botón copiar: empujado a la derecha */
+  > button.copy-code {
+    margin-left: auto !important;
+    color: #555 !important;
+
+    &:hover {
+      color: #aaa !important;
+    }
+  }
+}
+
+/* Zona de código */
+div.highlight,
+figure.highlight {
+  background: #050505 !important;
+  border-radius: 0 !important;
+
+  pre {
+    background: #050505 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  code {
+    background: transparent !important;
+  }
+
+  /* Números de línea */
+  .gutter {
+    background: #050505 !important;
+    border-right: 1px solid #1a1a1a !important;
+
+    pre.lineno {
+      color: #2d2d2d !important;
+    }
+  }
+}
