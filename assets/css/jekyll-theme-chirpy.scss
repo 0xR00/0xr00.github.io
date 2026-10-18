@@ -267,86 +267,73 @@ input:-webkit-autofill:focus {
 }
 
 /* ============================================================
-   Code blocks — estética terminal macOS
+   macOS terminal-style code blocks — basado en d4t4s3c.com
    ============================================================ */
 
-/* Wrapper con bordes redondeados y sombra */
-div[class*="language-"],
-.highlight-wrapper {
-  border-radius: 10px !important;
-  overflow: hidden !important;
-  border: 1px solid #222 !important;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.7) !important;
-  margin: 1.5rem 0 !important;
+/* Desactivar el header nativo de Chirpy si existe */
+.code-header {
+  display: none !important;
 }
 
-/* Barra de título estilo macOS */
-.code-header {
-  background: #1a1a1a !important;
-  border-bottom: 1px solid #2a2a2a !important;
-  padding: 8px 14px !important;
-  min-height: 38px;
-  justify-content: flex-start !important; /* dots + label | copy a la derecha */
+/* Wrapper de cada bloque de código */
+div[class*="language-"].highlighter-rouge {
+  position: relative;
+  margin: 2rem 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
 
-  /* Tres puntos: rojo / amarillo / verde */
+  /* Barra de título (degradado gris oscuro) */
   &::before {
     content: '';
-    display: inline-block;
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    height: 34px;
+    padding-left: 70px;
+    background: linear-gradient(#504b45 0%, #3c3b37 100%);
+    color: #d5d0ce;
+    font-size: 14px;
+  }
+
+  /* Tres puntos macOS */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 14px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #ff5f57;
-    box-shadow:
-      20px 0 0 0 #febc2e,
-      40px 0 0 0 #28c840;
-    margin-right: 52px; /* 40 desplazamiento + 12 del último círculo */
+    background: #ff5f56;
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
   }
 
-  /* Etiqueta del lenguaje */
-  > span[data-label-text] {
-    font-size: 0.73rem;
-    color: #666 !important;
-
-    &::before {
-      color: #666 !important;
-    }
+  /* Zona de código: fondo negro */
+  .highlight {
+    background: #000 !important;
+    overflow-x: auto;
   }
 
-  /* Botón copiar: empujado a la derecha */
-  > button.copy-code {
-    margin-left: auto !important;
-    color: #555 !important;
-
-    &:hover {
-      color: #aaa !important;
-    }
-  }
-}
-
-/* Zona de código */
-div.highlight,
-figure.highlight {
-  background: #050505 !important;
-  border-radius: 0 !important;
-
-  pre {
-    background: #050505 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-  }
-
+  pre,
   code {
     background: transparent !important;
+    color: #f8f8f2;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
-  /* Números de línea */
-  .gutter {
-    background: #050505 !important;
-    border-right: 1px solid #1a1a1a !important;
+  pre {
+    margin: 0;
+  }
 
-    pre.lineno {
-      color: #2d2d2d !important;
-    }
+  /* Scrollbar horizontal */
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
   }
 }
