@@ -337,3 +337,7 @@ div[class*="language-"].highlighter-rouge {
     border-radius: 4px;
   }
 }
+
+.post-tail-wrapper .post-meta a:not(:hover), .content a:not(.img-link) {
+  border-bottom: white;
+}
