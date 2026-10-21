@@ -6,6 +6,8 @@ categories: [ZHacksLabs, "XML External Entity"]
 tags: ["XXE","Blind","Out-Of-Band","Blind XXE"]
 ---
 
+---
+
 Vamos a ver la aplicación web:
 
 ![](/assets/images/zh/xxe/xxe-a-ciegas-por-interacción-oob-tramix/1.png)
