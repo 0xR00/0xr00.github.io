@@ -3,7 +3,7 @@ title: XXE a ciegas por interacción fuera de banda (Tramix)
 date: 2026-10-21
 mermaid: true
 categories: [ZHacksLabs, "XML External Entity"]
-tags: ["XXE","Blind","Out-Of-Band","Blind XXE"]
+tags: ["XXE","Blind","OOB","Blind XXE"]
 ---
 
 ---
