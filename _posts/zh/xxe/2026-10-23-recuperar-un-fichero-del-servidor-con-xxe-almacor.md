@@ -6,6 +6,8 @@ categories: [ZHacksLabs, "XML External Entity"]
 tags: ["XXE"]
 ---
 
+---
+
 Vamos ver la aplicación web:
 
 ![](/assets/images/zh/xxe/recuperar-un-fichero-del-servidor-con-xxe-almacor/1.png)
